@@ -49,6 +49,8 @@ article {
 
 .hero-image {
   width: 350px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 8px rgba(3, 36, 11, 0.315);
 }
 
 .btn {
