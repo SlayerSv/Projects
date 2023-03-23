@@ -87,13 +87,13 @@ article {
 
 .about-description li {
   flex: 1;
-  padding: 5px 10px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px 8px rgba(3, 20, 7, 0.171);
 }
 
 .about-description-title {
-  margin: 20px 0;
+  margin-bottom: 15px;
 }
 
 .client-review {
@@ -131,7 +131,7 @@ article {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 10px 15px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px 8px rgba(3, 20, 7, 0.171);
 }
