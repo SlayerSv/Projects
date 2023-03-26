@@ -24,6 +24,48 @@ body {
   color: var(--main-color-darkest);
 }
 
+header {
+  background-color: var(--main-color-light);
+}
+
+header nav {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--main-color-dark);
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a:active {
+  color: var(--main-color-darkest);
+}
+
+header .btn:link,
+header .btn:visited {
+  padding: 2px 12px;
+}
+
+.logo {
+  height: 2rem;
+}
+
 .hero-section {
   background-color: var(--main-color-light);
 }
