@@ -113,7 +113,8 @@ header .btn:visited {
 .btn-outline:visited {
   background-color: var(--main-color-lightest);
   color: var(--main-color-darkest);
-  box-shadow: inset 0 0 0 3px rgba(230, 125, 34, 0);
+  border: 3px solid var(--main-color-lightest);
+  padding: 0.7rem 1.7rem;
 }
 
 .btn-full:hover,
@@ -123,7 +124,7 @@ header .btn:visited {
 
 .btn-outline:hover,
 .btn-outline:active {
-  box-shadow: inset 0 0 0 3px rgba(230, 125, 34, 1);
+  border: 3px solid var(--main-color);
 }
 
 .hero-info a {
