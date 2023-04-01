@@ -1,0 +1,26 @@
+:root {
+  --main-color-darkest: #2e1907;
+  --main-color-dark: #b8651b;
+  --main-color: #e67d22;
+  --main-color-light: #fae5d3;
+  --main-color-lightest: #fdf2e9;
+
+  --main-content-width: 130rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--main-color-darkest);
+}

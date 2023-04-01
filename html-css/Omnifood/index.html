@@ -8,29 +8,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="general.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <img class="logo" src="img/omnifood-logo.png" alt="Omnifood logo">
+      <ul>
+        <li><a href="#">btn1</a></li>
+        <li><a href="#">btn2</a></li>
+        <li><a href="#">btn3</a></li>
+        <li><a href="#">btn4</a></li>
+        <li><a class="btn btn-full"href="#">btn5</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <header>
-      <nav>
-        <img class="logo" src="img/omnifood-logo.png" alt="Omnifood logo">
-        <ul>
-          <li><a href="#">btn1</a></li>
-          <li><a href="#">btn2</a></li>
-          <li><a href="#">btn3</a></li>
-          <li><a href="#">btn4</a></li>
-          <li><a class="btn btn-full"href="#">btn5</a></li>
-        </ul>
-      </nav>
-    </header>
     <section class="hero-section">
-      <div class="hero">
+      <div class="hero-section-container">
         <div class="hero-info">
           <h1 class="hero-info-title">A healthy meal delivered to your door, every single day</h1>
           <p class="hero-info-text">The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs.</p>
-          <a href="#" class="btn btn-full">Start eating well</a>
-          <a href="#" class="btn btn-outline">Learn more &darr;</a>
+          <div class="hero-info-buttons">
+            <a href="#" class="btn btn-full">Start eating well</a>
+            <a href="#" class="btn btn-outline">Learn more &darr;</a>
+          </div>
           <div class="delivered-meals">
             <div class="delivered-meals-photos">
               <img src="img/customers/customer-1.jpg" alt="customer photo">
@@ -39,11 +42,13 @@
               <img src="img/customers/customer-4.jpg" alt="customer photo">
               <img src="img/customers/customer-5.jpg" alt="customer photo">
               <img src="img/customers/customer-6.jpg" alt="customer photo">
-              <p><span>250,000+</span> meals delivered last year!</p>
             </div>
+            <p><span>250,000+</span> meals delivered last year!</p>   
           </div>
         </div>
-        <img src="img/hero.png" alt="a woman enjoying food" class="hero-image">
+        <div class="hero-image">
+          <img src="img/hero.png" alt="a woman enjoying food">
+      </div>
       </div>
     </section>
     <section class="featured">
@@ -54,6 +59,34 @@
         <img src="img/logos/techcrunch.png" alt="techcrunch logo">
         <img src="img/logos/the-new-york-times.png" alt="the new york times logo">
         <img src="img/logos/usa-today.png" alt="usa today logo">
+      </div>
+    </section>
+    <section class="how-it-works">
+      <div class="how-it-works-container">
+        <header>
+          <h3 class="how-it-works-name"></h3>
+          <h2 class="how-it-works-title"></h2>
+        </header>
+        <article class="how-it-works-content">
+          <div class="how-it-works-info">
+            <span class="step-number">01</span>
+            <h3 class="how-it-works-info-title">Tell us what you like (and what not)</h3>
+            <p class="how-it-works-info-text">Never again waste time thinking about what to eat! Omnifood AI will create a 100% personalized weekly meal plan just for you. It makes sure you get all the nutrients and vitamins you need, no matter what diet you follow!</p>
+          </div>
+          <img src="img/app/app-screen-1.png" alt="mobile app screenshot 1" class="how-it-works-info-image">
+          <img src="img/app/app-screen-2.png" alt="mobile app screenshot 2" class="how-it-works-info-image">
+          <div class="how-it-works-info">
+            <span class="step-number">02</span>
+            <h3 class="how-it-works-info-title">Approve your weekly meal plan</h3>
+            <p class="how-it-works-info-text">Once per week, approve the meal plan generated for you by Omnifood AI. You can change ingredients, swap entire meals, or even add your own recipes.</p>
+          </div>
+          <div class="how-it-works-info">
+            <span class="step-number">03</span>
+            <h3 class="how-it-works-info-title">Receive meals at convenient time</h3>
+            <p class="how-it-works-info-text">Best chefs in town will cook your selected meal every day, and we will deliver it to your door whenever works best for you. You can change delivery schedule and address daily!</p>
+          </div>
+          <img src="img/app/app-screen-3.png" alt="mobile app screenshot 3" class="how-it-works-info-image">
+        </article>
       </div>
     </section>
   </main>
