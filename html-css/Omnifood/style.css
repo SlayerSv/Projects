@@ -4,6 +4,8 @@
   --main-color: #e67d22;
   --main-color-light: #fae5d3;
   --main-color-lightest: #fdf2e9;
+
+  --main-content-width: 130rem;
 }
 
 
@@ -18,7 +20,7 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   color: var(--main-color-darkest);
@@ -29,7 +31,7 @@ header {
 }
 
 header nav {
-  max-width: 120rem;
+  max-width: var(--main-content-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -73,7 +75,7 @@ header .btn:visited {
 .hero {
   display: flex;
   align-items: center;
-  max-width: 120rem;
+  max-width: var(--main-content-width);
   margin: 0 auto;
   padding: 4rem;
   gap: 3rem;
@@ -151,4 +153,27 @@ header .btn:visited {
 .delivered-meals-photos span {
   color: var(--main-color-dark);
   font-weight: 700;
+}
+
+.featured {
+  max-width: var(--main-content-width);
+  margin: 4rem auto;
+  filter: brightness(0) opacity(0.55);
+}
+
+.featured-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.featured-logos {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.featured-logos img {
+  height: 3rem;
 }
