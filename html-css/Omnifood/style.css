@@ -247,3 +247,46 @@ header .btn:visited {
   transform: translate(-50%, -50%);
   z-index: -1;
 }
+
+.meals {
+  text-align: center;
+  
+}
+
+.meals-cards {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  
+}
+
+.meals-cards ul {
+  list-style: none;
+}
+
+.meals-card-image {
+  display: block;
+  width: 20rem;
+}
+
+.meals-tag {
+  display: inline-block;
+}
+
+.meals-link:link,
+.meals-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--main-color);
+  border-bottom: 1px solid currentColor;
+  padding: 0.1rem;
+  margin: 2rem auto;
+  transition: all 0.3s;
+}
+
+.meals-link:hover,
+.meals-link:active {
+  color: var(--main-color-dark);
+  border-color: transparent;
+}
