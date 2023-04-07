@@ -47,7 +47,7 @@ header .btn:visited {
 .hero-section-container {
   display: flex;
   align-items: center;
-  max-width: var(--main-content-width);
+  max-width: 130rem;
   margin: 0 auto;
   padding: 4rem;
   gap: 3rem;
@@ -249,40 +249,125 @@ header .btn:visited {
 }
 
 .meals {
+  max-width: var(--main-content-width);
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.meals h2,
+.meals h3 {
   text-align: center;
-  
+}
+
+.meals h2 {
+  font-size: 4rem;
+}
+
+.meals h3 {
+  color: var(--main-color);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 
 .meals-cards {
   margin-top: 6rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 6rem;
+  gap: 4rem;
   
+}
+
+.meals-card {
+  transition: all 0.3s;
+}
+
+.meals-card:hover {
+  transform: translateY(-1rem);
+}
+
+.meals-card,
+.meals-diets {
+  flex: 1;
+  min-width: 24rem;
+  max-width: 32rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.meals-card-text,
+.meals-diets {
+  padding: 2rem 4rem;
+}
+
+.meals-diets-list li {
+  display: flex;
+  gap: 1rem;
 }
 
 .meals-cards ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.meals-card-attribute {
+  display: flex;
+  gap: 1rem;
+}
+
+.meals ion-icon {
+  align-self: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--main-color);
 }
 
 .meals-card-image {
   display: block;
-  width: 20rem;
+  width: 100%;
+}
+
+.meals-card-title {
+  font-size: 2.4rem;
 }
 
 .meals-tag {
   display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 10rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.meals-tag.vegetarian {
+  background-color: rgb(8, 216, 8);
+}
+
+.meals-tag.vegan {
+  background-color: rgb(133, 243, 133);
+}
+
+.meals-tag.paleo {
+  background-color: rgb(231, 80, 53);
 }
 
 .meals-link:link,
 .meals-link:visited {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   color: var(--main-color);
   border-bottom: 1px solid currentColor;
   padding: 0.1rem;
   margin: 2rem auto;
   transition: all 0.3s;
+  width: fit-content;
 }
 
 .meals-link:hover,
