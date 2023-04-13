@@ -436,10 +436,28 @@ header .btn:visited {
 
 .pricing-card {
   margin: 3rem 0;
-  padding: 6rem;
+  padding: 4rem;
   border: 1px solid var(--main-color-light);
   text-align: center;
   border-radius: 10px;
+}
+
+.best-value {
+  position: relative;
+  background-color: var(--main-color-lightest);
+  overflow: hidden;
+}
+
+.best-value::after {
+  content: "best value";
+  position: absolute;
+  top: 6%;
+  right: -21%;
+  background-color: var(--main-color);
+  transform: rotate(45deg);
+  padding: 0 8rem;
+  font-weight: 700;
+
 }
 
 .pricing-card-listitem {
@@ -467,4 +485,41 @@ header .btn:visited {
 
 .pricing-card-infolist {
   margin: 4rem 0;
+}
+
+.features-container {
+  margin: 6rem auto;
+  padding: 0 2rem;
+  max-width: var(--main-content-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.feature ion-icon {
+  background-color: var(--main-color-lightest);
+  width: 3rem;
+  height: 3rem;
+  padding: 1.5rem;
+  border-radius: 50%;
+}
+
+.feature-title {
+  margin: 2rem 0;
+  font-size: 2.2rem;
+}
+
+.features-disclaimer {
+  color: #555;
+  font-size: 1.6rem;
 }
