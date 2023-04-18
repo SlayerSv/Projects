@@ -25,6 +25,11 @@ body {
   color: var(--main-color-darkest);
 }
 
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
 ul {
   list-style: none;
   display: flex;

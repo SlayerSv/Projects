@@ -22,14 +22,14 @@ header nav {
 
 .nav-link {
   text-decoration: none;
-  color: var(--main-color-dark);
-  font-weight: 700;
+  color: var(--main-color-darkest);
+  font-weight: 600;
   transition: all 0.3s;
 }
 
 .nav-link:hover,
 .nav-link:active {
-  color: var(--main-color-darkest);
+  color: var(--main-color-dark);
 }
 
 header .btn:link,
@@ -598,4 +598,57 @@ header .btn:visited {
 .cta-button:hover {
   background-color: var(--main-color-lightest);
   color: var(--main-color-darkest);
+}
+
+.footer-container {
+  border-top: 1px solid #ddd;
+  padding: 6rem 2rem 2rem; 
+  font-size: 1.4rem;
+  color: #555;
+  margin: 6rem auto;
+  max-width: var(--main-content-width);
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.footer-container a {
+  color: inherit;
+}
+
+.footer-container a:hover {
+  color: var(--main-color-dark);
+
+}
+
+.footer-title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.copyright {
+  font-size: 1.2rem;
+  margin-top: auto;
+
+}
+
+.footer-adress a:first-of-type {
+  margin-top: auto;
+}
+
+.footer-logo, 
+.footer-adress {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo ul {
+  margin: 2rem 0;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: start;
+}
+
+.footer-logo ion-icon {
+  color: inherit;
 }
