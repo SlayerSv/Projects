@@ -362,20 +362,33 @@
     <section class="cta-section">
       <div class="cta-container">
         <article class="cta">
-          <figure class="cta-form">
+          <figure class="cta-info">
             <h2 class="heading">Get your first meal for free!</h2>
             <p class="cta-text">Healthy, tasty and hassle-free meals are waiting for you. Start eating well today. You can cancel or pause anytime. And the first meal is on us!</p>
-            <div class="cta-inputs">
-              <label for="name">Full name</label>
-              <input class="cta-input" id="name" type="text">
-              <label for="email">Email Adress</label>
-              <input class="cta-input" id="email" type="email">
-              <label for="where">Where did you hear from us?</label>
-              <select class="cta-input" id="where"></select>
-              <a href="#" class="cta-link">Sign up now</a>
-            </div>
+            <form class="cta-form" action="#">
+              <div>
+                <label for="name">Full name</label>
+                <input class="cta-input" id="name" type="text" placeholder="John Doe" required>
+              </div>
+              <div>
+                <label for="email">Email Adress</label>
+                <input class="cta-input" id="email" type="email" placeholder="me@example.com" required>
+              </div>
+              <div>
+                <label for="where">Where did you hear from us?</label>
+                <select class="cta-input" id="where" required>
+                  <option value="">Please choose an option:</option>
+                  <option value="friends">Friends and Family</option>
+                  <option value="youtube">Youtube</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="podcast">Podcast</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <button class="cta-button">Sign up now</button>
+            </form>
           </figure>
-          <figure class="cta-image"></figure>
+          <figure class="cta-image" role="img" aria-label="a woman enjoying food"></figure>
         </article>
       </div>
     </section>

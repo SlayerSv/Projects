@@ -536,7 +536,7 @@ header .btn:visited {
   overflow: hidden;
 }
 
-.cta-form {
+.cta-info {
   padding: 4rem;
 }
 
@@ -547,18 +547,55 @@ header .btn:visited {
   background-position: center;
 }
 
-.cta-image img {
-  width: 100%;
-  display: block;
+.cta-text {
+  margin-top: 2rem;
 }
 
-.cta-inputs {
+.cta-form {
+  margin-top: 5rem;
   display: grid;
-  grid-template-columns: 4;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+}
+
+.cta-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .cta-input {
-  width: 5rem;
-  
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  background-color: var(--main-color-lightest);
+  border: none;
+  border-radius: 1rem;
+}
+
+.cta-input::placeholder {
+  color: #999;
+}
+
+.cta-form label {
+  font-weight: 600;
+}
+
+.cta-button {
+  padding: 1.2rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: var(--main-color-darkest);
+  color: var(--main-color-lightest);
+  transition: all 0.3s;
+}
+
+.cta-button:hover {
+  background-color: var(--main-color-lightest);
+  color: var(--main-color-darkest);
 }
