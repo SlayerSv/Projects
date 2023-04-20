@@ -1,0 +1,82 @@
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .featured-logos img {
+      height: 2.5rem;
+    }
+
+  .features {
+    gap: 3rem;
+  }
+
+  .feature-title {
+    margin: 1rem 0;
+    font-size: 2rem;
+  }
+
+  .gallery {
+    gap: 1rem;
+  }
+
+  .meals-cards {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 50%;
+  }
+
+  .featured-logos img {
+    height: 2rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .testimonials-container .heading {
+    font-size: 2.5rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4rem;
+  }
+
+  .feature-title {
+    margin: 1rem 0;
+  }
+
+  .pricing-cards {
+    gap: 3rem;
+  }
+
+  .meals-card-title {
+    font-size: 2rem;
+  }
+
+  .meals-diets-title {
+    padding: 0 2rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: 800px) {
+
+    
+  }
+}

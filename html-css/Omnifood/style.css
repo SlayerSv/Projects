@@ -3,7 +3,10 @@ header {
 }
 
 nav.flex {
+  margin: 0 auto;
   justify-content: space-between;
+  max-width: var(--main-content-width);
+  padding: 2rem;
 }
 
 .nav-links {
@@ -132,7 +135,7 @@ header .btn:visited {
 
 .featured-logos {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -228,7 +231,7 @@ header .btn:visited {
 .meals-card,
 .meals-diets {
   flex: 1;
-  min-width: 24rem;
+  min-width: 16rem;
   max-width: 32rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
@@ -236,8 +239,12 @@ header .btn:visited {
 }
 
 .meals-card-text,
-.meals-diets {
-  padding: 2rem 4rem;
+.meals-diets ul {
+  padding: 2rem;
+}
+
+.meals-diets-title {
+  padding: 2rem;
 }
 
 .meals-diets-list li {
@@ -250,6 +257,9 @@ header .btn:visited {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.meals-card-info {
   margin-top: 2rem;
 }
 
@@ -300,7 +310,7 @@ header .btn:visited {
   color: var(--main-color);
   border-bottom: 1px solid currentColor;
   padding: 0.1rem;
-  margin: 5rem auto;
+  margin: 2rem auto;
   transition: all 0.3s;
   width: fit-content;
 }
@@ -366,11 +376,6 @@ header .btn:visited {
 .gallery-image:hover {
   scale: 1.1;
 }
-
-.pricing-section {
-  margin-top: 6rem;
-}
-
 
 .pricing-cards {
   display: flex;
@@ -471,6 +476,7 @@ header .btn:visited {
 }
 
 .cta-image {
+  min-width: 30rem;
   width: 60rem;
   background-image: linear-gradient(to right, rgba(235, 151, 78, 0.35), rgba(235, 151, 78, 0.35)), url(img/eating.jpg);
   background-size: cover;

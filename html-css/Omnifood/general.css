@@ -37,7 +37,7 @@ ul {
 .section-container {
   max-width: var(--main-content-width);
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .flex {
