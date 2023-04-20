@@ -2,29 +2,17 @@ header {
   background-color: var(--main-color-light);
 }
 
-header nav {
-  max-width: var(--main-content-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
+nav.flex {
   justify-content: space-between;
-  padding: 1rem 4rem;
 }
 
 .nav-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   gap: 2rem;
-  list-style: none;
-  
 }
 
 .nav-link {
-  text-decoration: none;
   color: var(--main-color-darkest);
   font-weight: 600;
-  transition: all 0.3s;
 }
 
 .nav-link:hover,
@@ -45,15 +33,6 @@ header .btn:visited {
   background-color: var(--main-color-light);
 }
 
-.hero-section-container {
-  display: flex;
-  align-items: center;
-  max-width: 130rem;
-  margin: 0 auto;
-  padding: 4rem;
-  gap: 3rem;
-}
-
 .hero-info {
   flex: 1;
 }
@@ -70,11 +49,7 @@ header .btn:visited {
   margin: 5rem 0;
 }
 
-.hero-info-title {
-  font-size: 4rem;
-  letter-spacing: -1px;
-  line-height: 1;
-}
+
 
 .hero-info-buttons {
   display: flex;
@@ -137,7 +112,7 @@ header .btn:visited {
 }
 
 .delivered-meals-photos img:last-child {
-  margin-right: 2rem;
+  margin-right: 0;
 }
 
 .delivered-meals span {
@@ -146,9 +121,6 @@ header .btn:visited {
 }
 
 .featured {
-  max-width: var(--main-content-width);
-  margin: 4rem auto;
-  padding: 2rem;
   filter: brightness(0) opacity(0.55);
 }
 
@@ -168,12 +140,6 @@ header .btn:visited {
 .featured-logos img {
   margin-top: 2rem;
   height: 3rem;
-}
-
-.how-it-works-container {
-  max-width: 110rem;
-  margin: 6rem auto;
-  padding: 3rem;
 }
 
 .how-it-works-content {
@@ -235,12 +201,6 @@ header .btn:visited {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
-}
-
-.meals {
-  max-width: var(--main-content-width);
-  margin: 4rem auto;
-  padding: 0 2rem;
 }
 
 .meals h2,
@@ -355,21 +315,12 @@ header .btn:visited {
   background-color: var(--main-color-light);
 }
 
-.testimonials-section-container {
-  max-width: 140rem;
-  margin: 10rem auto;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
 .testimonials-container {
   flex: 55;
-  padding: 6rem;
 }
 
-.testimonials-title {
-  font-size: 3.4rem;
+.testimonials-container .heading {
+  font-size: 3rem;
 }
 
 .testimonials {
@@ -400,7 +351,6 @@ header .btn:visited {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  padding: 2rem;
 }
 
 .gallery-image-container {
@@ -421,10 +371,6 @@ header .btn:visited {
   margin-top: 6rem;
 }
 
-.pricing-container {
-  max-width: var(--main-content-width);
-  margin: 0 auto;
-}
 
 .pricing-cards {
   display: flex;
@@ -434,8 +380,7 @@ header .btn:visited {
 }
 
 .pricing-card {
-  margin: 3rem 0;
-  padding: 4rem;
+  padding: 2rem;
   border: 1px solid var(--main-color-light);
   text-align: center;
   border-radius: 10px;
@@ -486,22 +431,11 @@ header .btn:visited {
   margin: 4rem 0;
 }
 
-.features-container {
-  margin: 6rem auto;
-  padding: 0 2rem;
-  max-width: var(--main-content-width);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
-}
-
 .features {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: 4rem;
 }
 
@@ -521,12 +455,8 @@ header .btn:visited {
 .features-disclaimer {
   color: #555;
   font-size: 1.6rem;
-}
-
-.cta-container {
-  margin: 0 auto;
-  padding: 2rem;
-  max-width: var(--main-content-width);
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .cta {
@@ -537,7 +467,7 @@ header .btn:visited {
 }
 
 .cta-info {
-  padding: 4rem;
+  padding: 2rem;
 }
 
 .cta-image {
@@ -602,14 +532,14 @@ header .btn:visited {
 
 .footer-container {
   border-top: 1px solid #ddd;
-  padding: 6rem 2rem 2rem; 
+  padding: 3rem 2rem 2rem; 
   font-size: 1.4rem;
   color: #555;
-  margin: 6rem auto;
+  margin: 0 auto;
   max-width: var(--main-content-width);
   display: grid;
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .footer-container a {
