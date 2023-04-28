@@ -230,8 +230,9 @@ header .btn:visited {
 
 .meals-card,
 .meals-diets {
+  text-align: center;
   flex: 1;
-  min-width: 16rem;
+  min-width: 22rem;
   max-width: 32rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
@@ -241,6 +242,13 @@ header .btn:visited {
 .meals-card-text,
 .meals-diets ul {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.meals-card-info,
+.meals-diets-list {
+  margin: 0 auto;
 }
 
 .meals-diets-title {
@@ -385,6 +393,7 @@ header .btn:visited {
 }
 
 .pricing-card {
+  min-width: 22rem;
   padding: 2rem;
   border: 1px solid var(--main-color-light);
   text-align: center;
@@ -400,11 +409,12 @@ header .btn:visited {
 .best-value::after {
   content: "best value";
   position: absolute;
+  width: 12rem;
   top: 6%;
   right: -21%;
   background-color: var(--main-color);
   transform: rotate(45deg);
-  padding: 0 8rem;
+  padding: 0 6rem;
   font-weight: 700;
 
 }
@@ -477,7 +487,8 @@ header .btn:visited {
 
 .cta-image {
   min-width: 30rem;
-  width: 60rem;
+  min-height: 50rem;
+  
   background-image: linear-gradient(to right, rgba(235, 151, 78, 0.35), rgba(235, 151, 78, 0.35)), url(img/eating.jpg);
   background-size: cover;
   background-position: center;
