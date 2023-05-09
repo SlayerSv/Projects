@@ -1,7 +1,3 @@
-.container {
-  padding: 2rem;
-}
-
 .hero {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.65), rgba(40, 180, 133, 0.65)), url(img/hero.jpg);
   height: 95vh;
@@ -35,7 +31,7 @@
   font-size: 6rem;
   animation-name: MoveLeft;
   animation-duration: 2s;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   animation-fill-mode: backwards;
   backface-visibility: hidden;
 }
@@ -47,9 +43,8 @@
   margin: 3rem 0 5rem 0;
   animation-name: MoveRight;
   animation-duration: 2s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-  opacity: 0;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
   backface-visibility: hidden;
 }
 
@@ -60,29 +55,28 @@
   }
 
   100% {
-    opacity: 1;
     translate: 0;
   }
 }
 
 @keyframes MoveRight {
   0% {
+    opacity: 0;
     translate: -10rem;
   }
 
   100% {
-    opacity: 1;
     translate: 0;
   }
 }
 
 @keyframes MoveTop {
   0% {
+    opacity: 0;
     translate: 0 5rem;
   }
 
   100% {
-    opacity: 1;
     translate: 0;
   }
 }
@@ -106,8 +100,7 @@
 }
 
 .header .btn {
-  opacity: 0;
-  animation: MoveTop 2s 1s forwards;
+  animation: MoveTop 2s 1s backwards;
   position: relative;
 }
 
@@ -155,4 +148,26 @@
 .header .btn:hover::before {
   scale: 1.6 1.5;
   opacity: 0;
+}
+
+.about-section {
+  background-color: #eee;
+  margin-top: -20%;
+  padding-top: 25%;
+}
+
+.about {
+  gap: 2rem;
+}
+
+.about-info {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 33%;
 }
