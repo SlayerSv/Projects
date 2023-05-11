@@ -1,0 +1,21 @@
+.about-section {
+  background-color: #eee;
+  margin-top: -20%;
+  padding-top: 25%;
+}
+
+.about {
+  gap: 2rem;
+}
+
+.about-info {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 33%;
+}

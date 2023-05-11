@@ -1,5 +1,5 @@
 .hero {
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.65), rgba(40, 180, 133, 0.65)), url(img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.65), rgba(40, 180, 133, 0.65)), url(../img/hero.jpg);
   height: 95vh;
   background-size: cover;
   background-position: top;
@@ -40,7 +40,7 @@
   display: block;
   letter-spacing: 1rem;
   font-size: 2rem;
-  margin: 3rem 0 5rem 0;
+  margin: 3rem 0;
   animation-name: MoveRight;
   animation-duration: 2s;
   animation-delay: 0.5s;
@@ -81,26 +81,8 @@
   }
 }
 
-.btn {
-  display: inline-block;
-  text-transform: uppercase;
-  padding: 1rem 2rem;
-  border-radius: 10rem;
-  transition: all 0.05s;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.0);
-}
-
-.btn-white {
-  color: #333;
-  background-color: #fff;
-}
-
-.btn:active {
-  transform: translateY(2px);
-}
-
 .header .btn {
-  animation: MoveTop 2s 1s backwards;
+  animation: MoveTop 1.5s 2s backwards;
   position: relative;
 }
 
@@ -117,10 +99,6 @@
   z-index: -1;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.0);
   transition: all 0.3s;
-}
-
-.header .btn:hover {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header .btn:hover::after {
@@ -148,26 +126,4 @@
 .header .btn:hover::before {
   scale: 1.6 1.5;
   opacity: 0;
-}
-
-.about-section {
-  background-color: #eee;
-  margin-top: -20%;
-  padding-top: 25%;
-}
-
-.about {
-  gap: 2rem;
-}
-
-.about-info {
-  flex: 1;
-}
-
-.about-image {
-  flex: 1;
-}
-
-.about-image img {
-  width: 33%;
 }
