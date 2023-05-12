@@ -12,10 +12,27 @@
   flex: 1;
 }
 
+.about-info p {
+  margin-bottom: 4rem;
+}
+
 .about-image {
   flex: 1;
+  height: 6rem;
+}
+
+.about-image-container {
+  width: 80%;
+  height: 100%;
+  position: relative;
 }
 
 .about-image img {
-  width: 33%;
+  width: 80%;
+  position: absolute;
+}
+
+.about-image-picture1 {
+  top: 3rem;
+  right: 3rem;
 }

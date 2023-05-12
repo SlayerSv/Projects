@@ -27,8 +27,8 @@
 
 .heading-main span:first-child {
   display: block;
-  letter-spacing: 3rem;
-  font-size: 6rem;
+  letter-spacing: 2rem;
+  font-size: calc(2rem + 3vw);
   animation-name: MoveLeft;
   animation-duration: 2s;
   animation-delay: 0.5s;
@@ -39,7 +39,7 @@
 .heading-main span:last-child {
   display: block;
   letter-spacing: 1rem;
-  font-size: 2rem;
+  font-size: calc(1rem + 1vw);
   margin: 3rem 0;
   animation-name: MoveRight;
   animation-duration: 2s;
