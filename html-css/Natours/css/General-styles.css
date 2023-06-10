@@ -64,7 +64,18 @@ ul {
   margin-bottom: 2rem;
 }
 
+.link {
+  display: inline-block;
+  color: var(--dark-green);
+  border-bottom: 2px solid var(--dark-green);
+  transition: all 0.3s;
+}
 
+.link:hover {
+  background-color: var(--dark-green);
+  color: white;
+  transform: translateY(-4px);
+}
 
 .btn {
   display: inline-block;

@@ -28,11 +28,30 @@
 }
 
 .about-image img {
-  width: 80%;
+  width: 50%;
   position: absolute;
+  transition: all 0.3s;
+}
+
+.about-image img:hover {
+  scale: 1.2;
+  outline: var(--dark-green) solid 7px;
+  outline-offset: 1rem;
+  z-index: 1
 }
 
 .about-image-picture1 {
-  top: 3rem;
-  right: 3rem;
+  top: -15rem;
+  right: 5rem;
+}
+
+.about-image-picture2 {
+  top: 0rem;
+  right: 10rem;
+  
+}
+
+.about-image-picture3 {
+  top: -10rem;
+  right: 30rem;
 }
