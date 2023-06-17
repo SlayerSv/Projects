@@ -1,4 +1,4 @@
-.hero {
+.section-hero {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.65), rgba(40, 180, 133, 0.65)), url(../img/hero.jpg);
   height: 95vh;
   background-size: cover;
