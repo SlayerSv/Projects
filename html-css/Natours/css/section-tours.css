@@ -1,0 +1,80 @@
+.section-tours {
+  margin-top: -10rem;
+  padding-top: 20rem;
+  background-color: var(--color-section-background);
+}
+
+.cards {
+  gap: 4rem;
+}
+
+.card {
+  position: relative;
+  width: 25rem;
+  height: 40rem;
+  perspective: 150rem;
+}
+
+.card--side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.8s;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.card--side-front {
+  background-color: white;
+}
+
+.card--side-back {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card--side-back {
+  transform: rotateY(0deg);
+}
+
+.card:hover .card--side-front {
+  transform: rotateY(180deg);
+}
+
+.card--side-back-1 {
+  background-image: linear-gradient(to bottom right, var(--color-secondary-light), var(--color-secondary-dark));
+}
+
+.card--side-back-2 {
+  background-image: linear-gradient(to bottom right, var(--color-primary-light), var(--color-primary-dark));
+}
+
+.card--side-back-3 {
+  background-image: linear-gradient(to bottom right, var(--color-tertiary-light), var(--color-tertiary-dark));
+}
+
+.card--image {
+  height: 20rem;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.card--image-1 {
+  background-image: linear-gradient(to bottom right, var(--color-secondary-light), var(--color-secondary-dark)),
+  url(../img/nat-5.jpg);
+}
+
+.card--image-2 {
+  background-image: linear-gradient(to bottom right, var(--color-primary-light), var(--color-primary-dark)),
+  url(../img/nat-6.jpg);
+}
+
+.card--image-3 {
+  background-image: linear-gradient(to bottom right, var(--color-tertiary-light), var(--color-tertiary-dark)),
+  url(../img/nat-7.jpg);
+}

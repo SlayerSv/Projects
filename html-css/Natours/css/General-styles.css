@@ -1,8 +1,15 @@
 :root {
-  --light-green: rgb(126, 213, 111);
-  --medium-green: #55c57a;
-  --dark-green: #28b485;
+  --color-primary-light: rgb(126, 213, 111);
+  --color-primary-medium: #55c57a;
+  --color-primary-dark: #28b485;
+  --color-section-background: #eee;
   --max-width: 130rem;
+  --color-secondary-light: #ffb900;
+  --color-secondary-dark: #ff7700;
+  --color-tertiary-light: #2998ff;
+  --color-tertiary-dark: #5643ff;
+  --shadow-light: 0 1.5rem 3rem rgba(0,0,0, 0.15);
+  --shadow-medium: 0 1.5rem 3rem rgba(0,0,0, 0.45);
 }
 
 * {
@@ -54,7 +61,7 @@ ul {
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 4%;
-  background-image: linear-gradient(to right, var(--light-green), var(--dark-green));
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -73,13 +80,13 @@ ul {
 
 .link {
   display: inline-block;
-  color: var(--dark-green);
-  border-bottom: 2px solid var(--dark-green);
+  color: var(--color-primary-dark);
+  border-bottom: 1px solid;
   transition: all 0.3s;
 }
 
 .link:hover {
-  background-color: var(--dark-green);
+  background-color: var(--color-primary-dark);
   color: white;
   transform: translateY(-4px);
 }

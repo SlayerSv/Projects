@@ -1,5 +1,5 @@
 .section-feature {
-  margin-top: -10rem;
+  margin-top: -15rem;
   padding: 15rem 0;
   background-image: linear-gradient(
     to right bottom,
@@ -24,25 +24,24 @@
   font-size: 1.6rem;
   text-align: center;
   border-radius: 5px;
-  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-light);
   transition: all 0.3s;
 }
 
 .feature:hover {
-  scale: 1.03;
-  transform: translateY(-1.5rem);
+  transform: translateY(-1.5rem) scale(1.03);
 }
 
 .feature--title {
-  margin: 2rem 0;
+  margin: 1rem 0 2rem;
   font-size: 2.2rem;
 }
 
 .feature--icon {
-  padding: 1rem;
+  padding-top: 1rem;
   display: block;
   font-size: 5rem;
-  background-image: linear-gradient(to right, var(--light-green), var(--dark-green));
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

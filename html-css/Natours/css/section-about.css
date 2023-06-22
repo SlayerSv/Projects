@@ -1,8 +1,8 @@
 .section-about {
-  background-color: #eee;
+  background-color: var(--color-section-background);
   margin-top: -20%;
   padding-top: 25%;
-  padding-bottom: 20rem;
+  padding-bottom: 25rem;
 }
 
 .about {
@@ -31,12 +31,13 @@
 .about-image img {
   width: 50%;
   position: absolute;
-  transition: all 0.3s;
+  transition: scale 0.3s;
+  box-shadow: var(--shadow-medium);
 }
 
 .about-image img:hover {
   scale: 1.2;
-  outline: var(--dark-green) solid 7px;
+  outline: var(--color-primary-dark) solid 7px;
   outline-offset: 1rem;
   z-index: 1
 }
@@ -54,5 +55,5 @@
 
 .about-image-picture3 {
   top: -10rem;
-  right: 30rem;
+  right: 25rem;
 }
