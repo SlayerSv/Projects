@@ -10,8 +10,8 @@
 
 .card {
   position: relative;
-  width: 25rem;
-  height: 40rem;
+  width: 30rem;
+  height: 50rem;
   perspective: 150rem;
 }
 
@@ -57,11 +57,11 @@
 }
 
 .card--image {
-  height: 20rem;
+  height: 50%;
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
 }
 
 .card--image-1 {
@@ -77,4 +77,73 @@
 .card--image-3 {
   background-image: linear-gradient(to bottom right, var(--color-tertiary-light), var(--color-tertiary-dark)),
   url(../img/nat-7.jpg);
+}
+
+.card--title {
+  position: absolute;
+  bottom: 55%;
+  right: 0;
+  color: white;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.card--title span {
+  padding: 0.5rem 1rem;
+}
+
+.card--title-1 span {
+  background-image: linear-gradient(to bottom right, rgba(255, 185, 0, 0.85), rgba(255, 119, 0, 0.85));
+}
+
+.card--title-2 span {
+  background-image: linear-gradient(to bottom right, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85));
+}
+
+.card--title-3 span {
+  background-image: linear-gradient(to bottom right, rgba(41, 152, 255, 0.85), rgba(86, 67, 255, 0.85));
+}
+
+.card--details {
+  height: 49%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.card--list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card--list-item:not(:first-child) {
+  border-top: 2px solid #eee;
+}
+
+.card--cta {
+  flex-direction: column;
+  height: 100%;
+}
+
+.card--only {
+  color: white;
+  font-size: 3rem;
+}
+
+.card--price {
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+  color: white;
+  font-size: 6rem;
+}
+
+.section-tours--button {
+  margin-top: 4rem;
 }
