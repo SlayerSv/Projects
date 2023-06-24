@@ -1,0 +1,60 @@
+.section-stories {
+    background-color: var(--color-section-background);
+}
+
+.stories {
+    gap: 4rem;
+}
+
+.story {
+    padding: 2rem 2rem 2rem 6rem;
+    width: 75%;
+    height: 20rem;
+    border-radius: 5px;
+    box-shadow: var(--shadow-light);
+    background-color: white;
+    transform: skewX(-16deg);
+}
+
+.story--image-box {
+    width: 16rem;
+    height: 16rem;
+    float: left;
+    border-radius: 50%;
+    shape-outside: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(8deg);
+    overflow: hidden;
+    position: relative;
+}
+
+.story--title {
+    margin-bottom: 1rem;
+}
+
+.story--image {
+    height: 100%;
+    transform: translateX(-3rem) scale(1.4) skewX(8deg);
+    transition: all 0.4s;
+}
+
+.story--person-name {
+    position: absolute;
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -20%) skewX(8deg);
+    transition: all 0.4s;
+}
+
+.story:hover .story--image {
+    transform: translateX(-4rem) scale(1) skewX(8deg);
+    filter: blur(3px) brightness(80%);
+}
+
+.story:hover .story--person-name {
+    opacity: 1;
+    transform: translate(-50%, -50%) skewX(8deg);
+}
