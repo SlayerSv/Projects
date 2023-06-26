@@ -5,6 +5,7 @@
 }
 
 .cards {
+  margin-top: 4rem;
   gap: 4rem;
 }
 
@@ -145,5 +146,5 @@
 }
 
 .section-tours--button {
-  margin-top: 4rem;
+  margin: 6rem 0 2rem;
 }

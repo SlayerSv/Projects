@@ -1,18 +1,25 @@
 .section-stories {
-    background-color: var(--color-section-background);
+    position: relative;
+}
+
+.section-stories .container-section {
+    padding: 6rem 2rem;
+    gap: 4rem;
 }
 
 .stories {
-    gap: 4rem;
+    margin-top: 2rem;
+    gap: 6rem;
 }
 
 .story {
     padding: 2rem 2rem 2rem 6rem;
+    font-size: 2rem;
     width: 75%;
     height: 20rem;
     border-radius: 5px;
     box-shadow: var(--shadow-light);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
     transform: skewX(-16deg);
 }
 
@@ -57,4 +64,30 @@
 .story:hover .story--person-name {
     opacity: 1;
     transform: translate(-50%, -50%) skewX(8deg);
+}
+
+.bg-video-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.65;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heading-box {
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.stories--link {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
 }

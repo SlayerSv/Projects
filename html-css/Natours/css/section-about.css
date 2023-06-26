@@ -6,6 +6,7 @@
 }
 
 .about {
+  margin-top: 4rem;
   gap: 2rem;
 }
 
@@ -48,7 +49,7 @@
 }
 
 .about-image-picture2 {
-  top: 0rem;
+  top: 0;
   right: 10rem;
   
 }
