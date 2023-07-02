@@ -34,10 +34,12 @@
 }
 
 .card--side-back {
+  visibility: hidden;
   transform: rotateY(-180deg);
 }
 
 .card:hover .card--side-back {
+  visibility: visible;
   transform: rotateY(0deg);
 }
 

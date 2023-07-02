@@ -1,0 +1,117 @@
+.navigation {
+}
+
+.navigation--checkbox {
+    display: none;
+}
+
+.navigation--button {
+    position: fixed;
+    z-index: 4;
+    top: 5rem;
+    right: 5rem;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.navigation--background {
+    position: fixed;
+    z-index: 2;
+    top: 5.5rem;
+    right: 5.5rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-image: radial-gradient(var(--color-primary-light), var(--color-primary-dark));
+    transition: transform 0.6s;
+}
+
+.navigation--checkbox:checked ~ .navigation--background {
+    transform: scale(80);
+}
+
+.navigation--menu {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.navigation--checkbox:checked ~ .navigation--menu {
+    visibility: visible;
+    width: 100%;
+    opacity: 1;
+}
+
+.navigation--list-item {
+    display: block;
+    color: white;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    text-transform: uppercase;
+    font-size: 3rem;
+    text-align: center;
+    background-image: linear-gradient(120deg, transparent, transparent 50%,white 50%);
+    background-size: 220%;
+    transition: all 0.3s;
+}
+
+.navigation--list-item:hover {
+    color: var(--color-primary-medium);
+    background-position: 100%;
+
+}
+
+.navigation--list-item a {
+    color: currentColor;
+}
+
+.navigation--icon {
+    position: relative;
+}
+
+.navigation--icon,
+.navigation--icon::before,
+.navigation--icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: black;
+    display: inline-block;
+}
+
+.navigation--icon::before,
+.navigation--icon::after {
+    content: "";
+    position: absolute;
+    
+}
+
+.navigation--icon::before {
+    top: 0.8rem;
+}
+
+.navigation--icon::after {
+    top: -0.8rem;
+}
+
+.navigation--checkbox:checked ~ .navigation--button .navigation--icon {
+    background-color: transparent;
+}
+
+.navigation--checkbox:checked ~ .navigation--button .navigation--icon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navigation--checkbox:checked ~ .navigation--button .navigation--icon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
