@@ -16,10 +16,13 @@
 
 .features {
   gap: 6rem;
+  align-items: stretch;
 }
 
 .feature {
   background-color: rgba(255, 255, 255, 0.8);
+  min-width: 20rem;
+  max-width: 25rem;
   padding: 2rem;
   font-size: 1.6rem;
   text-align: center;
@@ -45,4 +48,25 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  .features {
+    gap: 2rem;
+  }
+
+  .feature {
+    font-size: 1.4rem;
+  }
+
+  .feature--title {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .features {
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
 }

@@ -16,7 +16,6 @@
     padding: 2rem 2rem 2rem 6rem;
     font-size: 2rem;
     width: 75%;
-    height: 20rem;
     border-radius: 5px;
     box-shadow: var(--shadow-light);
     background-color: rgba(255, 255, 255, 0.8);
@@ -90,4 +89,15 @@
 .stories--link {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 3px;
+}
+
+@media screen and (max-width: 1200px) {
+    .story--image-box {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .story {
+        font-size: 1.6rem;
+    }
 }

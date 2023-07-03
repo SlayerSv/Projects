@@ -24,7 +24,7 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
-  font-size: calc(1.2rem + 0.6vw);
+  font-size: clamp(12px, calc(1.2rem + 0.6vw), 2.2rem);
   letter-spacing: 1px;
   padding: 1.5vw;
   color: #555;
@@ -73,7 +73,7 @@ ul {
 }
 
 .heading-tertiary {
-  font-size: calc(1rem + 0.9vw);
+  font-size: calc(1rem + 0.6vw);
   margin-bottom: 2rem;
 }
 

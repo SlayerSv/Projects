@@ -12,6 +12,7 @@
 .card {
   position: relative;
   width: 30rem;
+  min-width: 25rem;
   height: 50rem;
   perspective: 150rem;
 }
@@ -116,7 +117,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .card--list-item {
@@ -149,4 +150,10 @@
 
 .section-tours--button {
   margin: 6rem 0 2rem;
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    flex-wrap: wrap;
+  }
 }

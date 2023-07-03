@@ -16,11 +16,13 @@
 
 .about-info p {
   margin-bottom: 4rem;
+  min-width: 40rem;
 }
 
 .about-image {
   flex: 1;
-  height: 6rem;
+  height: 30rem;
+  min-width: 40rem;
 }
 
 .about-image-container {
@@ -30,7 +32,7 @@
 }
 
 .about-image img {
-  width: 50%;
+  width: 60%;
   position: absolute;
   transition: scale 0.3s;
   box-shadow: var(--shadow-medium);
@@ -44,17 +46,28 @@
 }
 
 .about-image-picture1 {
-  top: -15rem;
-  right: 5rem;
+  bottom: 0;
+  left: 0;
 }
 
 .about-image-picture2 {
-  top: 0;
-  right: 10rem;
+  top: 30%;
+  right: 0;
   
 }
 
 .about-image-picture3 {
-  top: -10rem;
-  right: 25rem;
+  left: 20%;
+  top: 0;
+  
+}
+
+@media screen and (max-width: 900px) {
+  .about {
+    flex-wrap: wrap;
+  }
+
+  .about-image {
+    height: 40rem;
+  }
 }

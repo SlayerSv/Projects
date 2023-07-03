@@ -118,3 +118,17 @@
     margin-top: 2rem;
 }
 
+@media screen and (max-width: 900px) {
+    .booking--form {
+        width: 90%;
+    }
+
+    .booking {
+        background-image: linear-gradient(105deg,
+        rgba(255,255,255, 0.8) 0%,
+        rgba(255,255,255, 0.8) 80%,
+        transparent 80%),
+                url("../img/nat-10.jpg");
+    }
+}
+
