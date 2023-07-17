@@ -1,13 +1,8 @@
-import { useState } from "react";
-import Logo from "./Logo";
-import SearchInput from "./SearchInput";
-import NumberOfSearchResults from "./NumberOfSearchResults";
+import { ReactElement, useState } from "react";
 
-export default function NavBar() {
+export default function NavBar({children} : {children: ReactElement[]}) {
   return (
   <nav className="nav-bar">
-    <Logo />
-    <SearchInput />
-    <NumberOfSearchResults />
+    {children}
   </nav>
 )}

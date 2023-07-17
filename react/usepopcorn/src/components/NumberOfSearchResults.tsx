@@ -1,7 +1,7 @@
-export default function NumberOfSearchResults() {
+export default function NumberOfSearchResults({numberOfMovies}: {numberOfMovies: number}) {
   return (
     <p className="num-results">
-    Found <strong>x</strong> results
+    Found <strong>{numberOfMovies}</strong> results
   </p>
   )
 }
