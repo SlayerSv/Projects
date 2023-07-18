@@ -8,6 +8,7 @@ import { useState } from "react";
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
 import NumberOfSearchResults from "./NumberOfSearchResults";
+import RatingBar from "./RatingBar";
 
 const tempMovieData = [
   {
@@ -73,6 +74,7 @@ export default function App() {
         <Box>
           <WatchedSummary watched={watched}/>
           <WatchedMoviesList watched={watched}></WatchedMoviesList>
+          <RatingBar />
         </Box>
       </Main>
     </>
