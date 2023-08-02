@@ -71,3 +71,34 @@
     height: 40rem;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .section-about {
+    padding-bottom: 30rem;
+  }
+  .about-image img {
+    position: static;
+  }
+
+  .about-info {
+    min-width: auto;
+    font-size: 14px;
+  }
+
+  .about-info p {
+    min-width: auto;
+  }
+
+  .about-image {
+    min-width: none;
+    width: 100%;
+  }
+
+  .about-image-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}

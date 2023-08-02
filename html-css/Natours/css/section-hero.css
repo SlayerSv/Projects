@@ -22,7 +22,6 @@
   text-transform: uppercase;
   text-align: center;
   color: #fff;
-  
 }
 
 .heading-main span:first-child {
@@ -126,4 +125,13 @@
 .header .btn:hover::before {
   scale: 1.6 1.5;
   opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .heading-main span:first-child {
+    letter-spacing: 1rem;
+  }
+  .heading-main span:last-child {
+    letter-spacing: 0.5rem;
+  }
 }
