@@ -3,8 +3,10 @@ import postsReducer from "./posts/postsSlice";
 
 const store = configureStore({
   reducer: {
-    name: postsReducer
+    posts: postsReducer
   }
 });
 
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>
