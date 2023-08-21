@@ -1,4 +1,7 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, MouseEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { addPost } from "../features/store/posts/postsSlice";
+import { nanoid } from '@reduxjs/toolkit';
 
 function FormAddPost() {
   const [title, setTitle] = useState("");
@@ -10,6 +13,18 @@ function FormAddPost() {
   const onContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
   }
+
+  const dispatch = useDispatch();
+  const onAddPost = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    e.preventDefault();
+    if (title && content) {
+      dispatch(addPost({id: nanoid(), title, content}))
+      setTitle("");
+      setContent("");
+    }
+    
+  }
+
   return (
     <section>
       <h2>Add a post</h2>
@@ -31,7 +46,7 @@ function FormAddPost() {
           value={content}
           onChange={onContentChange}
         />
-        <button>Add Post</button>
+        <button onClick={(e) => onAddPost(e)}>Add Post</button>
       </form>
     </section>
   )

@@ -6,7 +6,7 @@ function PostsList() {
   const renderedPosts = posts.map((post) => (
     <article className='post-excerpt'>
       <h2>{post.title}</h2>
-      <p className='post-content'>{post.content}</p>
+      <p className='post-content'>{post.content.substring(0, 100)}</p>
     </article>
   ));
   return (
