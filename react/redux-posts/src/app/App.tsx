@@ -1,7 +1,8 @@
 import './App.css'
 import { Navbar } from './components/Navbar';
-import  PostsList from "./components/PostsList";
-import FormAddPost from './components/FormAddPost';
+import  PostsList from "./features/store/posts/PostsList";
+import FormAddPost from './features/store/posts/FormAddPost';
+import FormEditPost from './features/store/posts/FormEditPost';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <FormAddPost />
       <PostsList />
+      <FormEditPost />
     </div>
       
   )

@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { addPost } from "../features/store/posts/postsSlice";
+import { addPost } from "./postsSlice";
 import { nanoid } from '@reduxjs/toolkit';
 
 function FormAddPost() {
