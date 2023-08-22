@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
+import PostAuthor from './PostAuthor';
 
 function PostPage() {
   const postId = "1";
@@ -18,6 +19,7 @@ function PostPage() {
     <section>
       <article className='post'>
         <h2>{post.title}</h2>
+        <PostAuthor userId = {post.userId}/>
         <p className='post-content'>{post.content}</p>
       </article>
     </section>

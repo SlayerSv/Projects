@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '../store';
+import PostAuthor from './PostAuthor';
 
 function PostsList() {
   const posts = useSelector((state: RootState) => state.posts);
@@ -7,6 +8,7 @@ function PostsList() {
     <article className='post-excerpt' key={post.id}>
       <h2>{post.title}</h2>
       <p className='post-content'>{post.content.substring(0, 100)}</p>
+      <PostAuthor userId={post.userId}/>
     </article>
   ));
   return (
