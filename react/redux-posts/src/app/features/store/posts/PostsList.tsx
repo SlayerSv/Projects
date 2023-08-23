@@ -1,14 +1,17 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '../store';
 import PostAuthor from './PostAuthor';
+import DateDisplayer from './DateDisplayer';
 
 function PostsList() {
   const posts = useSelector((state: RootState) => state.posts);
-  const renderedPosts = posts.map((post) => (
+  const sortedPosts = [...posts].sort((a, b) => (a.date < b.date) ? 1 : -1)
+  const renderedPosts = sortedPosts.map((post) => (
     <article className='post-excerpt' key={post.id}>
       <h2>{post.title}</h2>
       <p className='post-content'>{post.content.substring(0, 100)}</p>
       <PostAuthor userId={post.userId}/>
+      <DateDisplayer date={post.date} />
     </article>
   ));
   return (

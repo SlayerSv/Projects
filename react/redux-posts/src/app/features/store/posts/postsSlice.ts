@@ -1,8 +1,14 @@
 import { PayloadAction, createSlice, nanoid } from '@reduxjs/toolkit'
 
 const initialState = [
-  { id: '1', title: 'First Post!', content: 'Hello!', userId: "3" },
-  { id: '2', title: 'Second Post', content: 'More text', userId: "4" }
+  { id: '1', title: 'First Post!', content: 'Hello!', userId: "3",
+   date: new Date(Date.now() - 1000 * 60 * 60).toISOString()},
+  { id: '2', title: 'Second Post', content: 'More text', userId: "4",
+    date: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString()
+  },
+  { id: '3', title: 'Third Post', content: 'More text', userId: "1",
+    date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString()
+  },
 ]
 
 type post = typeof initialState[0]
@@ -21,7 +27,8 @@ const postsSlice = createSlice({
             id: nanoid(),
             title,
             content,
-            userId: userId
+            userId: userId,
+            date: new Date().toISOString()
           }
         }
       },
