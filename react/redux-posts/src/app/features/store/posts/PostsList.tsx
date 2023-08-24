@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../store';
 import PostAuthor from './PostAuthor';
 import DateDisplayer from './DateDisplayer';
+import ReactionButtons from "./ReactionButtons";
 
 function PostsList() {
   const posts = useSelector((state: RootState) => state.posts);
@@ -12,6 +13,7 @@ function PostsList() {
       <p className='post-content'>{post.content.substring(0, 100)}</p>
       <PostAuthor userId={post.userId}/>
       <DateDisplayer date={post.date} />
+      <ReactionButtons post={post}/>
     </article>
   ));
   return (
