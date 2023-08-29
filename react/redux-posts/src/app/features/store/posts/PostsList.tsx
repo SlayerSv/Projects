@@ -3,10 +3,11 @@ import type { RootState } from '../store';
 import PostAuthor from './PostAuthor';
 import DateDisplayer from './DateDisplayer';
 import ReactionButtons from "./ReactionButtons";
+import { Link } from "react-router-dom";
 
 function PostsList() {
   const posts = useSelector((state: RootState) => state.posts);
-  const sortedPosts = [...posts].sort((a, b) => (a.date < b.date) ? 1 : -1)
+  const sortedPosts = [...posts].sort((a, b) => (b.date.localeCompare(a.date)))
   const renderedPosts = sortedPosts.map((post) => (
     <article className='post-excerpt' key={post.id}>
       <h2>{post.title}</h2>
@@ -14,6 +15,9 @@ function PostsList() {
       <PostAuthor userId={post.userId}/>
       <DateDisplayer date={post.date} />
       <ReactionButtons post={post}/>
+      <div>
+        <Link to={`post/${post.id}`} className='button'>View Post</Link>
+      </div>
     </article>
   ));
   return (

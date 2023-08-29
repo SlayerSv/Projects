@@ -669,13 +669,7 @@ h2:not(:first-child),
 h3:not(:first-child),
 h4:not(:first-child),
 h5:not(:first-child) {
-  margin: 1.5rem 0;
-}
-
-h1:not(:first-child),
-h2:not(:first-child),
-h3:not(:first-child) {
-  margin-top: 2rem;
+  margin: 3.5rem 0;
 }
 
 h1 {
@@ -699,11 +693,7 @@ h5 {
 }
 
 @media (min-width: 600px) {
-  h1:not(:first-child),
-  h2:not(:first-child),
-  h3:not(:first-child) {
-    margin-top: 2.5rem;
-  }
+
   h1 {
     font-size: 2.25rem;
   }

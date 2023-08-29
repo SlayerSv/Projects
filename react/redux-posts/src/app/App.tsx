@@ -1,20 +1,22 @@
+import { Routes, Route } from "react-router-dom";
 import './App.css'
-import { Navbar } from './components/Navbar';
 import  PostsList from "./features/store/posts/PostsList";
 import FormAddPost from './features/store/posts/FormAddPost';
 import FormEditPost from './features/store/posts/FormEditPost';
 import PostPage from './features/store/posts/PostPage';
+import Layout from "./components/Layout";
 
 function App() {
   return (
-    <div className='App'>
-      <Navbar />
-      <FormAddPost />
-      <PostsList />
-      <PostPage />
-      <FormEditPost />
-    </div>
-      
+    <Routes>
+      <Route path="/" element={<Layout/>}>
+        <Route index element={<PostsList />}/>
+        <Route path="addpost" element={<FormAddPost />}/>
+        <Route path="post/:id" element={<PostPage />}/>
+        <Route path="edit/:id" element={<FormEditPost />}/>
+        <Route path="*" element={<p>Not Found</p>}/>
+      </Route>
+    </Routes>
   )
 }
 

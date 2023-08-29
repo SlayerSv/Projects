@@ -12,11 +12,20 @@ function DateDisplayer({date} : {date: string}) {
   let renderedDate;
 
   if (timestampOfEvent - startOfDay >= 0) {
-    renderedDate = ` Today, ${dateOfEvent.toLocaleTimeString()}`;
+    renderedDate = `Today, ${dateOfEvent.toLocaleTimeString(
+      undefined,
+      {hour: "2-digit", minute: "2-digit"}
+      )}`;
   } else if (timestampOfEvent - (startOfDay - day) >= 0) {
-    renderedDate = ` Yesterday, ${dateOfEvent.toLocaleTimeString()}`
+    renderedDate = `Yesterday, ${dateOfEvent.toLocaleTimeString(
+      undefined,
+      {hour: "2-digit", minute: "2-digit"}
+    )}`
   } else {
-    renderedDate = " " + dateOfEvent.toLocaleString();
+    renderedDate = dateOfEvent.toLocaleString(
+      undefined,
+      {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}
+    );
   }
 
   return (

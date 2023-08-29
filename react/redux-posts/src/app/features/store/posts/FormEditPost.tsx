@@ -3,13 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
 import { editPost } from "./postsSlice";
 
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 function FormEditPost() {
-  const postId = "1";
-  const post = useSelector((state: RootState) => state.posts.find(post => post.id === postId))
+  const { id }= useParams();
+  const post = useSelector((state: RootState) => state.posts.find(post => post.id === id))
   const [title, setTitle] = useState(post?.title);
   const [content, setContent] = useState(post?.content);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function onTitleChange(e: ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value);
@@ -22,11 +24,12 @@ function FormEditPost() {
   function onSaveEdit() {
     dispatch(
       editPost({
-        id: post?.id,
+        id: id,
         title,
         content
       })
     );
+    navigate(`/post/${id}`)
   }
 
 
@@ -49,11 +52,14 @@ function FormEditPost() {
           value={content}
           onChange={(e) => onContentChange(e)}
           />
-        <button
-          type="button"
-          onClick={onSaveEdit}
-        >
-        Save Edit</button>
+        <div style={{display: "flex", gap: ".5rem"}}>
+          <button
+            type="button"
+            onClick={onSaveEdit}
+          >
+          Save Edit</button>
+          <Link to={`/post/${id}`} className="button muted-button">Cancel</Link>
+        </div>
       </form>
     </section>
   )

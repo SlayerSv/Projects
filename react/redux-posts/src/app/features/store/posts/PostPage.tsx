@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
+import { Link, useParams } from "react-router-dom";
 import { RootState } from '../store';
 import PostAuthor from './PostAuthor';
 import DateDisplayer from './DateDisplayer';
+import ReactionButtons from './ReactionButtons';
 
 function PostPage() {
-  const postId = "1";
+  const { id } = useParams();
 
-  const post = useSelector((state: RootState) => state.posts.find(post => postId === post.id))
+  const post = useSelector((state: RootState) => state.posts.find(post => id === post.id))
 
   if (!post) {
     return (
@@ -21,9 +23,14 @@ function PostPage() {
       <article className='post'>
         <PostAuthor userId = {post.userId}/>
         <DateDisplayer date={post.date}/>
-        <h2>{post.title}</h2>
+        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <h2>{post.title}</h2>
+          <Link to={`/edit/${post.id}`} className='button'>Edit post</Link>
+        </div>
         
         <p className='post-content'>{post.content}</p>
+        <ReactionButtons post={post}/>
+        
       </article>
     </section>
   )

@@ -66,7 +66,8 @@ const postsSlice = createSlice({
       },
     },
     editPost(state, action) {
-      const post = state.find(post => post.id);
+      const id = action.payload.id
+      const post = state.find(post => post.id === id);
       if (!post) return;
       post.title = action.payload.title;
       post.content = action.payload.content;
