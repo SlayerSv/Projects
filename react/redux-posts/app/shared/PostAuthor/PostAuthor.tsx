@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "../../Store/Index";
 
 function PostAuthor({userId} : {userId: string}) {
   const author = useSelector((state: RootState) => {

@@ -1,6 +1,6 @@
-import type { Post } from "./postsSlice";
+import type { Post } from "../../Store/Posts/postsSlice";
 import { useDispatch } from "react-redux";
-import { addReaction } from "./postsSlice";
+import { addReaction } from "../../Store/Posts/postsSlice";
 
 function ReactionButtons({ post } : {post: Post}) {
   const dispatch = useDispatch();

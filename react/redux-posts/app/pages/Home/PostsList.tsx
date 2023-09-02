@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import type { RootState } from '../store';
-import PostAuthor from './PostAuthor';
-import DateDisplayer from './DateDisplayer';
-import ReactionButtons from "./ReactionButtons";
+import type { RootState } from '../../Store/Index';
+import PostAuthor from '../../shared/PostAuthor/PostAuthor';
+import DateDisplayer from '../../shared/DateDisplayer/Index';
+import ReactionButtons from "../../shared/ReactionButtons/ReactionButtons";
 import { Link } from "react-router-dom";
 
 function PostsList() {

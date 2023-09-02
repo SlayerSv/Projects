@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import './App.css'
-import  PostsList from "./features/store/posts/PostsList";
-import FormAddPost from './features/store/posts/FormAddPost';
-import FormEditPost from './features/store/posts/FormEditPost';
-import PostPage from './features/store/posts/PostPage';
-import Layout from "./components/Layout";
+import  PostsList from "./pages/Home/PostsList";
+import FormAddPost from './pages/AddPost/FormAddPost';
+import FormEditPost from './pages/EditPost/FormEditPost';
+import PostPage from './pages/Post/PostPage';
+import Layout from "./shared/Layout/Layout";
 
 function App() {
   return (
@@ -19,5 +19,4 @@ function App() {
     </Routes>
   )
 }
-
 export default App

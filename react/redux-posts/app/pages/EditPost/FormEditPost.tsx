@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store";
-import { editPost } from "./postsSlice";
+import { RootState } from "../../Store/Index";
+import { editPost } from "../../Store/Posts/postsSlice";
 
 import { Link, useParams, useNavigate } from "react-router-dom";
 

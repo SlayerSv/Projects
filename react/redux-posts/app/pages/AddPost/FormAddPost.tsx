@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost } from "./postsSlice";
-import { RootState } from "../store";
+import { addPost } from "../../Store/Posts/postsSlice";
+import { RootState } from "../../Store/Index";
 
 function FormAddPost() {
   const [title, setTitle] = useState("");
