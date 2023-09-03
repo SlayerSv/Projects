@@ -16,8 +16,8 @@ function ReactionButtons({ post } : {post: Post}) {
   return (
     Object.entries(reactions).map(([name, emoji]) => {
       return (
-        <button 
-          key="name"
+        <button
+          key={name}
           className="muted-button reaction-button"
           onClick={() => dispatch(addReaction({postId: post.id, reactionName: name}))}
         >{emoji} {post.reactions[name as keyof Post["reactions"]]}</button>

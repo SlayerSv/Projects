@@ -21,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "vite-env.d.ts", "app/shared/Navbar/Navbar.tsx", "app/shared/Layout/Layout.tsx", "app/main.tsx", "app/shared/Spinner/Spinner.tsx", "app/App.tsx", "app/Store/Index.ts", "app/shared/DateDisplayer/Index.tsx", "app/pages/AddPost/FormAddPost.tsx", "app/pages/EditPost/FormEditPost.tsx", "app/pages/Post/PostPage.tsx", "app/Store/Posts/postsSlice.ts", "app/pages/Home/PostsList.tsx", "app/shared/PostAuthor/PostAuthor.tsx", "app/shared/ReactionButtons/ReactionButtons.tsx", "app/Store/Users/usersSlice.ts"],
+  "include": ["app", "vite-env.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

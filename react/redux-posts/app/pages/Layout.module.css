@@ -1,0 +1,11 @@
+@import "../../variables.css";
+
+.app {
+  max-width: var(--max-width);
+  margin: 8rem auto 2rem;
+  gap: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
