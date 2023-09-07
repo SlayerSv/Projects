@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store/Index";
+import styles from "./PostAuthor.module.css";
+
 
 function PostAuthor({userId} : {userId: string}) {
   const author = useSelector((state: RootState) => {
@@ -7,7 +9,7 @@ function PostAuthor({userId} : {userId: string}) {
   });
 
   return (
-    <span>by: {author ? author.name : "Unknown author"}</span>
+    <span className={styles.author}>by: {author ? author.name : "Unknown author"}</span>
   )
 }
 

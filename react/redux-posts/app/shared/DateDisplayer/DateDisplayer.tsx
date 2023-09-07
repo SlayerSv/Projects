@@ -1,3 +1,5 @@
+import styles from "./DateDisplayer.module.css"
+
 function DateDisplayer({date} : {date: string}) {
   const startOfDay = new Date().setHours(0, 0, 0, 0);
   const dateOfEvent = new Date(date);
@@ -29,7 +31,7 @@ function DateDisplayer({date} : {date: string}) {
   }
 
   return (
-    <div>{renderedDate}</div>
+    <span className={styles.date}>{renderedDate}</span>
   )
 }
 

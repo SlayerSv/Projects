@@ -1,8 +1,10 @@
+@import "./variables.css";
 *,
 ::after,
 ::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -26,4 +28,11 @@ ul {
 
 .flex-col {
   flex-direction: column;
+}
+
+.button {
+  background-color: rgb(var(--primary-color));
+  padding: 0.5rem 1rem;
+  color: aliceblue;
+  border-radius: 5px;
 }

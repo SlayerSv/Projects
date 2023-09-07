@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
 import { RootState } from '../../Store/Index';
 import PostAuthor from '../../shared/PostAuthor/PostAuthor';
-import DateDisplayer from '../../shared/DateDisplayer/Index';
+import DateDisplayer from '../../shared/DateDisplayer/DateDisplayer';
 import ReactionButtons from '../../shared/ReactionButtons/ReactionButtons';
 
 function PostPage() {
