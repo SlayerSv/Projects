@@ -1,4 +1,7 @@
 :root {
-  --primary-color: 17, 17, 136;
+  --primary-color: 15, 15, 115;
   --max-width: 1200px;
+  --primary-color-lightest: 240, 240, 255;
+  --primary-color-light: 200, 200, 255;
+  --primary-color-darkest: 5, 5, 25;
 }

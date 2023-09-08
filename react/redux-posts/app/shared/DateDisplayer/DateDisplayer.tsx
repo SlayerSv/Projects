@@ -26,7 +26,7 @@ function DateDisplayer({date} : {date: string}) {
   } else {
     renderedDate = dateOfEvent.toLocaleString(
       undefined,
-      {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}
+      {year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit"}
     );
   }
 

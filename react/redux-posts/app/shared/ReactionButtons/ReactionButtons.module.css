@@ -1,4 +1,15 @@
+@import "../../../variables.css";
+
 .buttons {
   display: flex;
   gap: 5px;
+}
+
+.reaction_button {
+  background-color: rgb(var(--primary-color-lightest));
+  color: rgb(var(--primary-color-darkest));
+  border: 1px solid rgba(0, 0, 0, .55);
+  padding: 3px 6px;
+  border-radius: 10px;
+  cursor: pointer;
 }

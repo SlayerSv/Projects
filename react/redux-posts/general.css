@@ -9,7 +9,13 @@
 
 html {
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: Inter, sans-serif;
+  
+}
+
+body {
+  background-color: rgb(var(--primary-color-lightest));
+  color: rgb(var(--primary-color-darkest));
 }
 
 a {
@@ -33,6 +39,10 @@ ul {
 .button {
   background-color: rgb(var(--primary-color));
   padding: 0.5rem 1rem;
-  color: aliceblue;
+  color: rgb(var(--primary-color-lightest));
   border-radius: 5px;
+}
+
+.button-muted {
+  
 }
