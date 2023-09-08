@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../Store/Index";
+import { RootState } from "../../../../Store/Index";
 import styles from "./PostAuthor.module.css";
 
 

@@ -1,0 +1,11 @@
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date_author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

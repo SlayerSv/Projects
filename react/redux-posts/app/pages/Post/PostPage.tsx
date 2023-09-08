@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
 import { RootState } from '../../Store/Index';
-import PostAuthor from '../../shared/PostAuthor/PostAuthor';
-import DateDisplayer from '../../shared/DateDisplayer/DateDisplayer';
-import ReactionButtons from '../../shared/ReactionButtons/ReactionButtons';
+import PostAuthor from './PostMeta/PostAuthor/PostAuthor';
+import DateDisplayer from './PostMeta/DateDisplayer/DateDisplayer';
+import ReactionButtons from './ReactionButtons/ReactionButtons';
 
 function PostPage() {
   const { id } = useParams();

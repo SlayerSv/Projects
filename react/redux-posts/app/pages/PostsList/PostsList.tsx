@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../Store/Index';
-import Post from "./Post"
+import Post from "../Post/PostPreview/Post"
 import styles from "./PostList.module.css";
 
 function PostsList() {

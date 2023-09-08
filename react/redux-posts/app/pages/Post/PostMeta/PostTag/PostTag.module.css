@@ -1,0 +1,26 @@
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+.Travel {
+  background-color: darkgreen;
+}
+
+.Food {
+  background-color: chocolate;
+}
+
+.Style {
+  background-color: crimson;
+}
+
+.Relationships {
+  background-color: cornflowerblue;
+}
+
+.Coding {
+  background-color: blueviolet;
+}

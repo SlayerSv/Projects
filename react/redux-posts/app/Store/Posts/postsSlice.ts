@@ -1,5 +1,31 @@
 import { PayloadAction, createSlice, nanoid } from '@reduxjs/toolkit'
 
+export const postCategories = {
+  CODING: "Coding",
+  FOOD: "Food",
+  STYLE: "Style",
+  TRAVEL: "Travel",
+  RELATIONSHIPS: "Relationships"
+}
+
+export interface Post {
+  id: string,
+  title: string,
+  content: string,
+  userId: string,
+  date: string,
+  category: keyof typeof postCategories,
+  reactions: {
+    thumbsUp: number,
+    love: number,
+    angry: number,
+    sad: number,
+    thinking: number,
+    surprised: number
+   }
+
+}
+
 const initialState = [
   {
     id: '1',
@@ -12,6 +38,7 @@ const initialState = [
     " mollit anim id est laborum.",
     userId: "3",
     date: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
+    category: postCategories.TRAVEL,
     reactions: {
       thumbsUp: 3,
       love: 1,
@@ -31,6 +58,7 @@ const initialState = [
     " mollit anim id est laborum.",
     userId: "4",
     date: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+    category: postCategories.RELATIONSHIPS,
     reactions: {
       thumbsUp: 2,
       love: 2,
@@ -51,6 +79,7 @@ const initialState = [
     " mollit anim id est laborum.",
     userId: "1",
     date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(),
+    category: postCategories.STYLE,
     reactions: {
       thumbsUp: 5,
       love: 10,
@@ -62,8 +91,6 @@ const initialState = [
   },
 ]
 
-export type Post = typeof initialState[0]
-
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
@@ -72,14 +99,15 @@ const postsSlice = createSlice({
       reducer(state, action: PayloadAction<Post>) {
         state.push(action.payload);
       },
-      prepare(title: string, content: string, userId: string) {
+      prepare(title: string, content: string, userId: string, category: keyof typeof postCategories) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
-            userId: userId,
+            userId,
             date: new Date().toISOString(),
+            category,
             reactions: {
               thumbsUp: 0,
               love: 0,
