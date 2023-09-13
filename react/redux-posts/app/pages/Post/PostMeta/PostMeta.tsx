@@ -2,12 +2,12 @@ import DateDisplayer from "./DateDisplayer/DateDisplayer";
 import PostAuthor from "./PostAuthor/PostAuthor";
 import PostTag from "./PostTag/PostTag";
 import styles from "./PostMeta.module.css";
-import { postCategories } from "../../../Store/Posts/postsSlice";
+import type { Category } from "../../../../types/types";
 
 interface PostMeta {
   userId: string,
   date: string,
-  category: keyof typeof postCategories
+  category: Category
 }
 
 function PostMeta({ userId, date, category } : PostMeta) {

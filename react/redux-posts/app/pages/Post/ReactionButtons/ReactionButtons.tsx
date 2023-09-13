@@ -1,4 +1,4 @@
-import type { Post } from "../../../Store/Posts/postsSlice";
+import type { Post } from "../../../../types/types";
 import { useDispatch } from "react-redux";
 import { addReaction } from "../../../Store/Posts/postsSlice";
 import styles from "./ReactionButtons.module.css";

@@ -1,8 +1,8 @@
 import styles from "./PostTag.module.css";
-import { postCategories } from "../../../../Store/Posts/postsSlice";
+import type { Category } from "../../../../../types/types";
 
 
-function PostTag({ category } : { category: keyof typeof postCategories}) {
+function PostTag({ category } : { category: Category}) {
   return (
     <div className={`${styles.tag} ${styles[category]}`}>
       { category }

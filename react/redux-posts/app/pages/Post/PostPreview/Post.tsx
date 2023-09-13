@@ -1,7 +1,7 @@
 
 import ReactionButtons from "../ReactionButtons/ReactionButtons";
 import { Link } from "react-router-dom";
-import type { Post } from "../../../Store/Posts/postsSlice";
+import type { Post } from "../../../../types/types";
 import styles from "./Post.module.css";
 import PostMeta from '../PostMeta/PostMeta';
 

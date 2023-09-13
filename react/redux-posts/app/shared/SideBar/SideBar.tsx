@@ -1,5 +1,5 @@
 import styles from "./SideBar.module.css";
-import { postCategories } from "../../Store/Posts/postsSlice";
+import { postCategories } from "../../../types/types";
 
 
 function SideBar() {
