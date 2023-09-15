@@ -11,7 +11,9 @@ export default function Layout() {
       <Navbar />
       <main className="flex">
         <SideBar />
-        <Outlet />
+        <div className={styles.container}>
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </div>

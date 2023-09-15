@@ -4,14 +4,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(var(--primary-color));
   min-height: 6rem;
-  color: aliceblue;
+  color: rgb(var(--primary-color-lightest));
 }
 
 .title {

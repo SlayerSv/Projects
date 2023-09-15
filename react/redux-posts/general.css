@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-size: 16px;
   font-family: Inter, sans-serif;
@@ -16,6 +17,8 @@ html {
 body {
   background-color: rgb(var(--primary-color-lightest));
   color: rgb(var(--primary-color-darkest));
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
@@ -41,8 +44,14 @@ ul {
   padding: 0.5rem 1rem;
   color: rgb(var(--primary-color-lightest));
   border-radius: 5px;
+  border: none;
+  border: 1px solid transparent;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .button-muted {
-  
+  background-color: rgb(var(--primary-color-lightest));
+  border: 1px solid;
+  color: rgb(var(--primary-color-darkest));
 }

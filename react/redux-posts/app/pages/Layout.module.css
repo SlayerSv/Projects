@@ -2,8 +2,9 @@
 
 .app {
   max-width: var(--max-width);
-  margin: 8rem auto 2rem;
-  gap: 6rem;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding-top: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,4 +13,13 @@
 
 main {
   width: 100%;
+  flex-grow: 1;
+}
+
+.container {
+  width: 700px;
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }

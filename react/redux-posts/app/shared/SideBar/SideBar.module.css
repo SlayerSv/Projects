@@ -17,8 +17,11 @@
   border: 1px solid rgba(0, 0, 0, 0.55);
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  background-color: rgb(var(--primary-color));
+  color: rgb(var(--primary-color-lightest));
 }
 
 .category:hover {
   background-color: rgb(var(--primary-color-light));
+  color: rgb(var(--primary-color-darkest));
 }
