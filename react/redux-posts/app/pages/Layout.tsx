@@ -9,7 +9,7 @@ export default function Layout() {
   return (
     <div className={styles.app}>
       <Navbar />
-      <main className="flex">
+      <main className={styles.main}>
         <SideBar />
         <div className={styles.container}>
           <Outlet />

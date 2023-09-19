@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  position: relative;
+  font-size: 30px;
+}
+
+.content {
+  text-align: justify;
+  font-size: 20px;
+  line-height: 1.3;
+}

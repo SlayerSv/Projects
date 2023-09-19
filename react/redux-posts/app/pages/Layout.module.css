@@ -1,25 +1,23 @@
 @import "../../variables.css";
 
 .app {
-  max-width: var(--max-width);
+  
   min-height: 100dvh;
-  margin: 0 auto;
-  padding-top: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-main {
-  width: 100%;
-  flex-grow: 1;
+.main {
+  max-width: var(--max-width);
+  display: flex;
 }
 
 .container {
-  width: 700px;
+  
   align-self: flex-start;
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
 }

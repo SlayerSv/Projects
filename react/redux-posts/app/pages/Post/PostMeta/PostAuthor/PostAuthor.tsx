@@ -9,7 +9,7 @@ function PostAuthor({userId} : {userId: string}) {
   });
 
   return (
-    <span className={styles.author}>by: {author ? author.name : "Unknown author"}</span>
+    <span className={styles.author}>by {author ? author.name : "Unknown author"}</span>
   )
 }
 

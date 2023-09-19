@@ -1,12 +1,14 @@
 @import "../../../variables.css";
 
 .sidebar {
-  width: 200px;
-  align-self: flex-start;
-  margin: 3rem;
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  margin: 2rem;
 }
 
 .categories {
+  width: 200px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -15,7 +17,7 @@
 .category {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.55);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem 0.5rem 1rem;
   border-radius: 5px;
   background-color: rgb(var(--primary-color));
   color: rgb(var(--primary-color-lightest));

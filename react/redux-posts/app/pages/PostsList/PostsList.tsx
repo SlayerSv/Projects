@@ -11,7 +11,8 @@ function PostsList() {
   ));
   return (
     <section className={styles.posts}>
-      <h2>Posts</h2>
+      {/* <h2>Posts</h2> */}
+      {renderedPosts}
       {renderedPosts}
     </section>
     )

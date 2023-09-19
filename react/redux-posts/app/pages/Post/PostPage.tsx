@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
 import { RootState } from '../../Store/Index';
-import PostAuthor from './PostMeta/PostAuthor/PostAuthor';
-import DateDisplayer from './PostMeta/DateDisplayer/DateDisplayer';
 import ReactionButtons from './ReactionButtons/ReactionButtons';
+import styles from "./PostPage.module.css";
+import PostMeta from './PostMeta/PostMeta';
 
 function PostPage() {
   const { id } = useParams();
@@ -20,15 +20,20 @@ function PostPage() {
 
   return (
     <section>
-      <article className='post'>
-        <PostAuthor userId = {post.userId}/>
-        <DateDisplayer date={post.date}/>
-        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <h2>{post.title}</h2>
-          <Link to={`/edit/${post.id}`} className='button'>Edit post</Link>
-        </div>
+      <article className={styles.container}>
+        <header className={styles.meta}>
+          <PostMeta
+            userId={post.userId}
+            date={post.date}
+            category={post.category}
+          />
+          <Link to={`/edit/${post.id}`} className={`button`}>Edit post</Link>
+        </header>
         
-        <p className='post-content'>{post.content}</p>
+        <h2 className={styles.title}>{post.title}</h2>
+        
+        
+        <p className={styles.content}>{post.content}</p>
         <ReactionButtons post={post}/>
         
       </article>

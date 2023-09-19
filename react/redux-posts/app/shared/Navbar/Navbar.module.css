@@ -1,25 +1,36 @@
 @import "/variables.css";
 
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(var(--primary-color));
-  min-height: 6rem;
   color: rgb(var(--primary-color-lightest));
+}
+
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
   font-size: 32px;
 }
 
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
 .links {
   margin-top: 1rem;
+  
   display: flex;
   justify-content: center;
   align-items: center;
