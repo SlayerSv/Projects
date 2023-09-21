@@ -1,20 +1,13 @@
 import sequelize from "../db";
 import { DataTypes } from "sequelize";
 
-const User = sequelize.define("user", {
+const ReactionPost = sequelize.define("ReactionPost", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     unique: true,
   },
-  name: {
-    type: DataTypes.STRING,
-    unique: true,
-  },
-  avatar: {
-    type: DataTypes.STRING,
-  }
 });
 
-export default User;
+export default ReactionPost;

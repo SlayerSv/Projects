@@ -1,11 +1,13 @@
 import express from "express";
 import "dotenv/config";
 import router from "./routes/routes";
-import sequelize from "./db";
-import models from "./models/models";
+import sequelize from "./models/associations";
+import cors from "cors";
+
 const PORT = process.env.APP_PORT || 5001;
 const app = express();
 
+app.use(cors());
 app.use(express.json())
 
 app.use("/api", router);
@@ -14,19 +16,13 @@ app.get("/", (req, res) => {
 })
 app.get("/*", (req: any, res: any) => {
   console.log(req.params);
-  res.status(404).send("NOT FOUND")
+  res.status(404).send("NOT FOUND");
 })
 
 async function start() {
   try {
     await sequelize.authenticate();
-    // await models.Post.sync({alter: true});
-    // await models.Category.sync({alter: true});
-    // await models.Reaction.sync({alter: true});
-    // await models.CommentReaction.sync({alter: true});
-    // await models.PostReaction.sync({alter: true});
-    // await models.User.sync({alter: true});
-    // await models.Comment.sync({alter: true});
+    //await sequelize.sync();
     app.listen(PORT, () => {
     console.log(`App started on port: ${PORT}`)
     })
