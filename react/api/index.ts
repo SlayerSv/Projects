@@ -3,6 +3,7 @@ import "dotenv/config";
 import router from "./routes/routes";
 import sequelize from "./models/associations";
 import cors from "cors";
+import errorHandler from "./middleware/ErrorHandler";
 
 const PORT = process.env.APP_PORT || 5001;
 const app = express();
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json())
 
 app.use("/api", router);
+
 app.get("/", (req, res) => {
   res.send("HOME")
 })
@@ -18,6 +20,8 @@ app.get("/*", (req: any, res: any) => {
   console.log(req.params);
   res.status(404).send("NOT FOUND");
 })
+
+app.use(errorHandler);
 
 async function start() {
   try {
