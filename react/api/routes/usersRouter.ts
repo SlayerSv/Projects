@@ -10,6 +10,6 @@ router.get("/:id", (req, res) => {
   res.send(`USER ${req.params.id}`)
 });
 router.post("/signup", UserController.signup.bind(UserController));
-router.post("/signin", )
+router.post("/signin", UserController.signin.bind(UserController));
 
 export default router;

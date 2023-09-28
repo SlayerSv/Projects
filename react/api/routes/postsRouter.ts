@@ -8,6 +8,8 @@ router.get("/:id", (req, res) => {
   res.send(`POST ${req.params.id}`)
 });
 
-router.post("/", PostController.create)
+router.post("/", PostController.create);
+router.patch("/", PostController.update);
+router.delete("/", PostController.delete);
 
 export default router;
