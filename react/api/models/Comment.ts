@@ -1,7 +1,12 @@
 import sequelize from "../db";
-import { DataTypes } from "sequelize";
+import { DataTypes, Model, CreationOptional, InferAttributes, InferCreationAttributes } from "sequelize";
 
-const Comment = sequelize.define(
+interface CommentModel extends Model<InferAttributes<CommentModel>, InferCreationAttributes<CommentModel>> {
+  id: CreationOptional<number>,
+  content: string
+}
+
+const Comment = sequelize.define<CommentModel>(
   "Comment",
   {
     id: {

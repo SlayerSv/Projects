@@ -1,10 +1,9 @@
-import sequelize from "../models/associations";
 import ApiError from "./ErrorController";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Op } from "sequelize";
-
-const User = sequelize.models.User;
+import User from "../models/User";
+import { Request, Response, NextFunction } from "express";
 
 class UserController {
 
@@ -26,7 +25,7 @@ class UserController {
     )
   }
 
-  async getUser(req: any, res: any, next: any) {
+  async getUser(req: Request, res: Response, next: NextFunction) {
     try {
       const user = await User.findOne({where: {id: req.body.userId}});
       if (!user) {
@@ -38,7 +37,7 @@ class UserController {
     }
   }
 
-  async signup(req: any, res: any, next: any) {
+  async signup(req: Request, res: Response, next: NextFunction) {
     const {name, email, password, avatar} = req.body;
     try {
       if (!name || !email || !password) {
@@ -56,8 +55,8 @@ class UserController {
         return next(ApiError.notFound("Such user already exists"));
       }
       const hashedPassword = bcrypt.hashSync(req.body.password, 5);
-      const user: any = await this.create(name, email, hashedPassword, avatar)
-      const accessToken = this.generateToken(user.id, user.email, user.name);
+      const user = await this.create(name, email, hashedPassword, avatar)
+      const accessToken = this.generateToken(user.id.toString(), user.email, user.name);
       res.status(201).send({accessToken});
     } catch (e) {
       console.log(e);
@@ -65,13 +64,13 @@ class UserController {
     }
   }
 
-  async signin(req: any, res: any, next: any) {
+  async signin(req: Request, res: Response, next: NextFunction) {
     const {email, password} = req.body;
     try {
       if (!email || !password) {
         return next(ApiError.notFound("required values are not provided"))
       }
-      const user: any = await User.findOne({
+      const user = await User.findOne({
         where: {
           email
         }
@@ -83,7 +82,7 @@ class UserController {
       if (!isPasswordCorrect) {
         return next(ApiError.notFound("Wrong password"))
       }
-      const accessToken = this.generateToken(user.id, user.email, user.name);
+      const accessToken = this.generateToken(user.id.toString(), user.email, user.name);
       res.status(200).send({accessToken});
     } catch (e) {
       console.log(e);

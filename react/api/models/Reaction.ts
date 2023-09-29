@@ -1,7 +1,12 @@
 import sequelize from "../db";
-import { DataTypes } from "sequelize";
+import { DataTypes, Model, CreationOptional, InferAttributes, InferCreationAttributes } from "sequelize";
 
-const Reaction = sequelize.define(
+interface ReactionModel extends Model<InferAttributes<ReactionModel>, InferCreationAttributes<ReactionModel>> {
+  id: CreationOptional<number>,
+  name: string
+}
+
+const Reaction = sequelize.define<ReactionModel>(
   "Reaction",
   {
     id: {

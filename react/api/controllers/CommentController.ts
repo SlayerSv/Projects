@@ -1,11 +1,12 @@
 import sequelize from "../models/associations";
 import ApiError from "./ErrorController";
+import { Request, Response, NextFunction } from "express";
 
 const Comment = sequelize.models.Comment;
 
 class CommentController {
 
-  async create(req: any, res: any, next: any) {
+  async create(req: Request, res: Response, next: NextFunction) {
     try {
       const comment: any = await Comment.create({
         content: req.body.content,
@@ -17,7 +18,7 @@ class CommentController {
     }
   }
 
-  async getAll(req: any, res: any, next: any) {
+  async getAll(req: Request, res: Response, next: NextFunction) {
     try {
       const comments = await Comment.findAll();
       res.status(200).send(comments);
@@ -26,7 +27,7 @@ class CommentController {
     }
   }
 
-  async getOne(req: any, res: any, next: any) {
+  async getOne(req: Request, res: Response, next: NextFunction) {
     try {
       const comment = await Comment.findOne({where: {id: req.body.id}});
       if (!comment) {
@@ -38,7 +39,7 @@ class CommentController {
     }
   }
 
-  async update(req: any, res: any, next: any) {
+  async update(req: Request, res: Response, next: NextFunction) {
     try {
       const comment = await Comment.findOne({where: {id: req.body.id}});
       if (!comment) {
@@ -51,7 +52,7 @@ class CommentController {
     }
   }
 
-  async delete(req: any, res: any, next: any) {
+  async delete(req: Request, res: Response, next: NextFunction) {
     try {
       const comment = await Comment.findOne({where: {id: req.body.id}});
       if (!comment) {

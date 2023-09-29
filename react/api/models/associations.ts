@@ -8,8 +8,8 @@ import ReactionPost from "./ReactionPost";
 import PostCategories from "./PostCategories";
 import sequelize from "../db";
 
-User.hasMany(Post);
-Post.belongsTo(User);
+User.hasMany(Post, {foreignKey: "userId"});
+Post.belongsTo(User, {foreignKey: "userId"});
 
 User.hasMany(Comment);
 Comment.belongsTo(User);
@@ -39,3 +39,5 @@ Reaction.hasMany(ReactionPost);
 ReactionPost.belongsTo(Reaction);
 
 export default sequelize;
+
+export {Post}

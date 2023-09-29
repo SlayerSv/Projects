@@ -1,7 +1,11 @@
 import sequelize from "../db";
-import { DataTypes } from "sequelize";
+import { DataTypes, Model, CreationOptional, InferAttributes, InferCreationAttributes } from "sequelize";
 
-const ReactionPost = sequelize.define("ReactionPost", {
+interface ReactionPostModel extends Model<InferAttributes<ReactionPostModel>, InferCreationAttributes<ReactionPostModel>> {
+  id: CreationOptional<number>
+}
+
+const ReactionPost = sequelize.define<ReactionPostModel>("ReactionPost", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

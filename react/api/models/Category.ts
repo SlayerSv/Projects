@@ -1,7 +1,12 @@
 import sequelize from "../db";
-import { DataTypes } from "sequelize";
+import { DataTypes, Model, CreationOptional, InferAttributes, InferCreationAttributes } from "sequelize";
 
-const Category = sequelize.define(
+export interface CategoryModel extends Model<InferAttributes<CategoryModel>, InferCreationAttributes<CategoryModel>> {
+  id: CreationOptional<number>,
+  name: string,
+}
+
+const Category = sequelize.define<CategoryModel>(
   "Category",
   {
     id: {
