@@ -4,9 +4,7 @@ import PostController from "../controllers/PostController";
 const router = Router();
 
 router.get("/", PostController.getAll);
-router.get("/:id", (req, res) => {
-  res.send(`POST ${req.params.id}`)
-});
+router.get("/:id", PostController.getOne);
 
 router.post("/", PostController.create);
 router.patch("/", PostController.update);

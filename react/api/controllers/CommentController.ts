@@ -11,6 +11,7 @@ class CommentController {
       const comment: any = await Comment.create({
         content: req.body.content,
         userId: req.body.userId,
+        postId: req.body.postId
       })
       res.status(201).send(comment);
     } catch (e) {
@@ -20,20 +21,8 @@ class CommentController {
 
   async getAll(req: Request, res: Response, next: NextFunction) {
     try {
-      const comments = await Comment.findAll();
+      const comments = await Comment.findAll({where: {postId: req.body.postId}});
       res.status(200).send(comments);
-    } catch (e) {
-      return next(e);
-    }
-  }
-
-  async getOne(req: Request, res: Response, next: NextFunction) {
-    try {
-      const comment = await Comment.findOne({where: {id: req.body.id}});
-      if (!comment) {
-        return next(ApiError.notFound("Such comment does not exist"))
-      }
-      res.status(200).send(comment);
     } catch (e) {
       return next(e);
     }

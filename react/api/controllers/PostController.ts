@@ -2,8 +2,14 @@ import ApiError from "./ErrorController";
 import jwt from "jsonwebtoken";
 import Post from "../models/Post";
 import Category from "../models/Category";
+import Comment from "../models/Comment";
 import { Request, Response, NextFunction } from "express";
 import { Op } from "sequelize";
+import User from "../models/User";
+import ReactionPost from "../models/ReactionPost";
+import ReactionComment from "../models/ReactionComment";
+import sequelize from "../db";
+import Reaction from "../models/Reaction";
 
 class PostController {
 
@@ -13,7 +19,11 @@ class PostController {
       if (!title || !content || !categoryIds || !userId) {
         return next(ApiError.notFound("Required values were not provided"));
       }
-      const categories = await Category.findAll({where: {id: {[Op.or]: [categoryIds]}}})
+      const categories = await Category.findAll({where: {
+        id: {
+          [Op.or]: [categoryIds]
+        },
+      }})
       if (!categories) {
         return next(ApiError.notFound("Such category does not exist"));
       }
@@ -31,7 +41,9 @@ class PostController {
 
   async getAll(req: Request, res: Response, next: NextFunction) {
     try {
-      const posts = await Post.findAll();
+      const posts = await Post.findAll({
+        
+      });
       res.status(200).send(posts);
     } catch (e) {
       return next(e);
@@ -40,12 +52,54 @@ class PostController {
 
   async getOne(req: Request, res: Response, next: NextFunction) {
     try {
-      const post = await Post.findOne({where: {id: req.body.id}});
+      const post = await Post.findOne({
+        //group: ["ReactionComments.reactionId"],
+        //subQuery: false,
+        where: {
+          id: req.params.id,
+        },
+        attributes: ["id"],
+        include: [
+          // {
+          //   model: User,
+          //   attributes: ["id", "name", "avatar"]
+          // },
+          // {
+          //   model: Category,
+          // },
+            // {
+            // model: Comment,
+            // attributes: []}
+          //   // @ts-ignore
+          //   group: ["Comment.id", "ReactionComments.id", "ReactionComments.reactionId"],
+          //   include: [
+          //     // {
+          //     //   model: User,
+          //     //   attributes: ["id", "name", "avatar"]
+          //     // },
+          //     {
+          //       model: ReactionComment,
+          //       attributes: [[sequelize.fn("COUNT", sequelize.col("ReactionComments.reactionId")), "reactionCount"]],
+                
+          //     }
+          //   ],
+          //   limit: 20
+          // },
+          {
+            model: ReactionPost,
+            attributes: ["reactionId", [sequelize.fn("COUNT", sequelize.col("ReactionPosts.postId")), "reactionCount"]],
+          },
+        ],
+        group: ["Post.id", "ReactionPosts.reactionId"],
+        //raw: true,
+        //nest: true
+      });
       if (!post) {
         return next(ApiError.notFound("Such post does not exist"))
       }
       res.status(200).send(post);
     } catch (e) {
+      console.log(e)
       return next(e);
     }
   }

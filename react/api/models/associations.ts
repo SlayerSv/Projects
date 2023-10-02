@@ -11,32 +11,32 @@ import sequelize from "../db";
 User.hasMany(Post, {foreignKey: "userId"});
 Post.belongsTo(User, {foreignKey: "userId"});
 
-User.hasMany(Comment);
-Comment.belongsTo(User);
+User.hasMany(Comment, {foreignKey: "userId"});
+Comment.belongsTo(User, {foreignKey: "userId"});
 
-User.hasMany(ReactionPost);
-ReactionPost.belongsTo(User);
+User.hasMany(ReactionPost, {foreignKey: "userId"});
+ReactionPost.belongsTo(User, {foreignKey: "userId"});
 
-User.hasMany(ReactionComment);
-ReactionComment.belongsTo(User);
+User.hasMany(ReactionComment, {foreignKey: "userId"});
+ReactionComment.belongsTo(User, {foreignKey: "userId"});
 
-Post.hasMany(ReactionPost);
-ReactionPost.belongsTo(Post);
+Post.hasMany(ReactionPost, {foreignKey: "postId"});
+ReactionPost.belongsTo(Post, {foreignKey: "postId"});
 
-Post.hasMany(Comment);
-Comment.belongsTo(Post);
+Post.hasMany(Comment, {foreignKey: "postId"});
+Comment.belongsTo(Post, {foreignKey: "postId"});
 
-Comment.hasMany(ReactionComment);
-ReactionComment.belongsTo(Comment);
+Comment.hasMany(ReactionComment, {foreignKey: "commentId"});
+ReactionComment.belongsTo(Comment, {foreignKey: "commentId"});
 
 Post.belongsToMany(Category, {through: PostCategories});
 Category.belongsToMany(Post, {through: PostCategories});
 
-Reaction.hasMany(ReactionComment);
-ReactionComment.belongsTo(Reaction);
+Reaction.hasMany(ReactionComment, {foreignKey: "reactionId"});
+ReactionComment.belongsTo(Reaction, {foreignKey: "reactionId"});
 
-Reaction.hasMany(ReactionPost);
-ReactionPost.belongsTo(Reaction);
+Reaction.hasMany(ReactionPost, {foreignKey: "reactionId"});
+ReactionPost.belongsTo(Reaction, {foreignKey: "reactionId"});
 
 export default sequelize;
 

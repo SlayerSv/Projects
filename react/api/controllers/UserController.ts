@@ -41,7 +41,7 @@ class UserController {
     const {name, email, password, avatar} = req.body;
     try {
       if (!name || !email || !password) {
-        return next(ApiError.notFound("required values are not provided"))
+        return next(ApiError.notFound("required values were not provided"))
       }
       const candidate = await User.findOne({
         where: {
@@ -59,7 +59,6 @@ class UserController {
       const accessToken = this.generateToken(user.id.toString(), user.email, user.name);
       res.status(201).send({accessToken});
     } catch (e) {
-      console.log(e);
       next(e)
     }
   }
@@ -68,7 +67,7 @@ class UserController {
     const {email, password} = req.body;
     try {
       if (!email || !password) {
-        return next(ApiError.notFound("required values are not provided"))
+        return next(ApiError.notFound("required values were not provided"))
       }
       const user = await User.findOne({
         where: {
@@ -85,7 +84,6 @@ class UserController {
       const accessToken = this.generateToken(user.id.toString(), user.email, user.name);
       res.status(200).send({accessToken});
     } catch (e) {
-      console.log(e);
       next(e)
     }
   }

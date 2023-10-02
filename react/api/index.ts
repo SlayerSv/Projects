@@ -4,6 +4,7 @@ import router from "./routes/routes";
 import sequelize from "./models/associations";
 import cors from "cors";
 import errorHandler from "./middleware/ErrorHandler";
+import { Request, Response } from "express";
 
 const PORT = process.env.APP_PORT || 5001;
 const app = express();
@@ -13,10 +14,10 @@ app.use(express.json())
 
 app.use("/api", router);
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send("HOME")
 })
-app.get("/*", (req: any, res: any) => {
+app.get("/*", (req: Request, res: Response) => {
   console.log(req.params);
   res.status(404).send("NOT FOUND");
 })
@@ -32,7 +33,6 @@ async function start() {
     })
   } catch (e) {
     console.log(e);
-    
   }
 }
 
