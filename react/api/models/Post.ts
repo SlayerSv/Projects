@@ -12,7 +12,7 @@ export interface PostModel extends Model<InferAttributes<PostModel>, InferCreati
   addCategories: BelongsToManyAddAssociationsMixin<CategoryModel, CategoryModel["id"]>,
 }
 
-const Post = sequelize.define<PostModel>("Post", {
+const Post = sequelize.define<PostModel>("post", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

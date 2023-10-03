@@ -12,7 +12,7 @@ interface ReactionCommentModel extends Model<InferAttributes<ReactionCommentMode
 }
 
 const ReactionComment = sequelize.define<ReactionCommentModel>(
-  "ReactionComment",
+  "reactionsComment",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -44,7 +44,9 @@ const ReactionComment = sequelize.define<ReactionCommentModel>(
       },
       allowNull: false,
     }
-    
+  },
+  {
+    timestamps: false
   }
 );
 

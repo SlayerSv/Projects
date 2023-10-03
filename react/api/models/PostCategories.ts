@@ -1,5 +1,5 @@
 import sequelize from "../db";
 
-const PostCategories = sequelize.define("PostCategories", {}, {timestamps: false});
+const PostCategories = sequelize.define("postCategories", {}, {timestamps: false});
 
 export default PostCategories;

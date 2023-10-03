@@ -7,7 +7,7 @@ export interface CategoryModel extends Model<InferAttributes<CategoryModel>, Inf
 }
 
 const Category = sequelize.define<CategoryModel>(
-  "Category",
+  "category",
   {
     id: {
       type: DataTypes.INTEGER,

@@ -7,7 +7,7 @@ interface ReactionModel extends Model<InferAttributes<ReactionModel>, InferCreat
 }
 
 const Reaction = sequelize.define<ReactionModel>(
-  "Reaction",
+  "reaction",
   {
     id: {
       type: DataTypes.INTEGER,

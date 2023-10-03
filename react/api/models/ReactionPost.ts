@@ -5,21 +5,21 @@ import Reaction from "../models/Reaction";
 import Post from "../models/Post";
 
 interface ReactionPostModel extends Model<InferAttributes<ReactionPostModel>, InferCreationAttributes<ReactionPostModel>> {
-  //id: CreationOptional<number>,
+  id: CreationOptional<number>,
   userId: ForeignKey<Number>,
   reactionId: ForeignKey<Number>,
   postId: ForeignKey<Number>,
 }
 
 const ReactionPost = sequelize.define<ReactionPostModel>(
-  "ReactionPost",
+  "reactionsPost",
   {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   autoIncrement: true,
-    //   primaryKey: false,
-    //   unique: true,
-    // },
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: false,
+      unique: true,
+    },
     userId: {
       type: DataTypes.INTEGER,
       references: {
@@ -45,7 +45,9 @@ const ReactionPost = sequelize.define<ReactionPostModel>(
       },
       allowNull: false,
     }
-    
+  },
+  {
+    timestamps: false
   }
 );
 

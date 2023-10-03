@@ -7,7 +7,7 @@ interface CommentModel extends Model<InferAttributes<CommentModel>, InferCreatio
 }
 
 const Comment = sequelize.define<CommentModel>(
-  "Comment",
+  "comment",
   {
     id: {
       type: DataTypes.INTEGER,

@@ -10,7 +10,7 @@ interface UserModel extends Model<InferAttributes<UserModel>, InferCreationAttri
   avatar: string
 }
 
-const User = sequelize.define<UserModel>("User", {
+const User = sequelize.define<UserModel>("user", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

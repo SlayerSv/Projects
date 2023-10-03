@@ -53,46 +53,62 @@ class PostController {
   async getOne(req: Request, res: Response, next: NextFunction) {
     try {
       const post = await Post.findOne({
-        //group: ["ReactionComments.reactionId"],
-        //subQuery: false,
         where: {
           id: req.params.id,
         },
-        attributes: ["id"],
+        attributes: ["id", "title", "content"],
         include: [
-          // {
-          //   model: User,
-          //   attributes: ["id", "name", "avatar"]
-          // },
-          // {
-          //   model: Category,
-          // },
-            // {
-            // model: Comment,
-            // attributes: []}
-          //   // @ts-ignore
-          //   group: ["Comment.id", "ReactionComments.id", "ReactionComments.reactionId"],
-          //   include: [
-          //     // {
-          //     //   model: User,
-          //     //   attributes: ["id", "name", "avatar"]
-          //     // },
-          //     {
-          //       model: ReactionComment,
-          //       attributes: [[sequelize.fn("COUNT", sequelize.col("ReactionComments.reactionId")), "reactionCount"]],
-                
-          //     }
-          //   ],
-          //   limit: 20
-          // },
+          {
+            model: User,
+            attributes: ["id", "name", "avatar"]
+          },
+          {
+            model: Category,
+            attributes: ["name"],
+            through: {
+              attributes: []
+            }
+          },
+          {
+            model: Comment,
+            attributes: ["content"],
+            include: [
+              {
+                model: User,
+                attributes: ["id", "name", "avatar"]
+              },
+              {
+                model: ReactionComment,
+                attributes: ["id"],
+                include: [
+                  {
+                    model: Reaction,
+                    attributes: ["name"]
+                  },
+                  {
+                    model: User,
+                    attributes: ["id", "name", "avatar"]
+                  }
+                ]
+              }
+            ],
+            limit: 20
+          },
           {
             model: ReactionPost,
-            attributes: ["reactionId", [sequelize.fn("COUNT", sequelize.col("ReactionPosts.postId")), "reactionCount"]],
+            attributes: ["id"],
+            include: [
+              {
+                model: User,
+                attributes: ["id", "name", "avatar"],
+              },
+              {
+                model: Reaction,
+                attributes: ["name"]
+              }
+            ]
           },
         ],
-        group: ["Post.id", "ReactionPosts.reactionId"],
-        //raw: true,
-        //nest: true
       });
       if (!post) {
         return next(ApiError.notFound("Such post does not exist"))
