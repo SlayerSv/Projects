@@ -26,9 +26,9 @@ class ReactionCommentController {
       }
 
       const reactionComment: any = await ReactionComment.create({
-        userId: req.body.userId,
-        commentId: req.body.commentId,
-        reactionId: req.body.reactionId
+        userId,
+        commentId,
+        reactionId
       })
       res.status(201).send(reactionComment);
     } catch (e) {

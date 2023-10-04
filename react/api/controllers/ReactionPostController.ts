@@ -26,9 +26,9 @@ class ReactionPostController {
       }
 
       const reactionPost: any = await ReactionPost.create({
-        userId: req.body.userId,
-        postId: req.body.postId,
-        reactionId: req.body.reactionId
+        userId,
+        postId,
+        reactionId
       })
       res.status(201).send(reactionPost);
     } catch (e) {

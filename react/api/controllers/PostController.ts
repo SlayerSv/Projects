@@ -1,38 +1,45 @@
-import ApiError from "./ErrorController";
 import jwt from "jsonwebtoken";
-import Post from "../models/Post";
-import Category from "../models/Category";
-import Comment from "../models/Comment";
-import { Request, Response, NextFunction } from "express";
 import { Op } from "sequelize";
+
+import ApiError from "./ErrorController";
 import User from "../models/User";
 import ReactionPost from "../models/ReactionPost";
 import ReactionComment from "../models/ReactionComment";
-import sequelize from "../db";
 import Reaction from "../models/Reaction";
+import Post from "../models/Post";
+import Category from "../models/Category";
+import Comment from "../models/Comment";
+
+import type { Request, Response, NextFunction } from "express";
 
 class PostController {
 
   async create(req: Request, res: Response, next: NextFunction) {
     try {
-      const {title, content, userId, categoryIds} = req.body;
-      if (!title || !content || !categoryIds || !userId) {
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) {
+        return next(ApiError.unauthorized("You need to signin to do that"));
+      }
+      const user: any = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
+      const userId = user.id;
+      const {title, content, categories} = req.body;
+      if (!title || !content || !categories) {
         return next(ApiError.notFound("Required values were not provided"));
       }
-      const categories = await Category.findAll({where: {
+      const categoryModels = await Category.findAll({where: {
         id: {
-          [Op.or]: [categoryIds]
+          [Op.or]: [categories]
         },
       }})
-      if (!categories) {
+      if (!categoryModels) {
         return next(ApiError.notFound("Such category does not exist"));
       }
-      const post: any = await Post.create({
+      const post = await Post.create({
         title,
         content,
         userId
       })
-      post.addCategories(categories);
+      post.addCategories(categoryModels);
       res.status(201).send(post);
     } catch (e) {
       return next(e);
@@ -122,8 +129,8 @@ class PostController {
 
   async update(req: Request, res: Response, next: NextFunction) {
     try {
-      const {id, title, content, categoryId} = req.body;
-      const post: any = await Post.findOne({where: {id}});
+      const {id, title, content, categories} = req.body;
+      const post = await Post.findOne({where: {id}});
       if (!post) {
         return next(ApiError.notFound("Such post does not exist"))
       }
@@ -132,10 +139,14 @@ class PostController {
         return next(ApiError.unauthorized("You need to signin to do that"));
       }
       const user: any = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
-      if (user.id !== post.UserId) {
+      if (user.id != post.userId) {
         return next(ApiError.forbidden("You are not allowed to do that"))
       }
       post.update(req.body);
+      if (categories) {
+        //@ts-ignore
+        post.setCategories(categories)
+      }
       res.status(200).send(post);
     } catch (e) {
       return next(e);
@@ -144,7 +155,11 @@ class PostController {
 
   async delete(req: Request, res: Response, next: NextFunction) {
     try {
-      const post: any = await Post.findOne({where: {id: req.body.id}});
+      const id = req.body.id;
+      if (!id) {
+        return next(ApiError.notFound("Pls provide a post id"))
+      }
+      const post = await Post.findOne({where: {id}});
       if (!post) {
         return next(ApiError.notFound("Such post does not exist"))
       }
@@ -153,7 +168,7 @@ class PostController {
         return next(ApiError.unauthorized("You need to signin to do that"));
       }
       const user: any = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
-      if (user.id !== post.UserId) {
+      if (user.id != post.userId) {
         return next(ApiError.forbidden("You are not allowed to do that"))
       }
       post.destroy();
