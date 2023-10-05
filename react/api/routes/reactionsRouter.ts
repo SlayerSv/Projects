@@ -10,8 +10,8 @@ router.post("/", ReactionController.create);
 router.patch("/", ReactionController.update);
 router.delete("/", ReactionController.delete);
 
-router.get("/reactions", ReactionController.getAll);
-router.post("/reactions/post", ReactionPostController.create);
-router.post("/reactions/comment", ReactionCommentController.create);
+router.get("/", ReactionController.getAll);
+router.post("/post", ReactionPostController.create);
+router.post("/comment", ReactionCommentController.create);
 
 export default router;

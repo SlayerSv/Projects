@@ -2,14 +2,21 @@ import ApiError from "./ErrorController";
 import { Request, Response, NextFunction } from "express";
 import ReactionPost from "../models/ReactionPost";
 import { Op } from "sequelize";
+import jwt from "jsonwebtoken";
 
 class ReactionPostController {
 
   async create(req: Request, res: Response, next: NextFunction) {
     try {
-      const {userId, postId, reactionId} = req.body;
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) {
+        return next(ApiError.unauthorized("You need to signin to do that"));
+      }
+      const user: any = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
+      const userId = user.id;
+      const {postId, reactionId} = req.body;
       if (!userId || !postId || !reactionId) {
-        return next(ApiError.notFound("Required values were not provided"))
+        return next(ApiError.notFound("Required values were not provided"));
       }
       const prevReaction = await ReactionPost.findOne({where: {
         [Op.and]: [

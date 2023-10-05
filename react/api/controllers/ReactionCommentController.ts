@@ -2,12 +2,19 @@ import ApiError from "./ErrorController";
 import { Request, Response, NextFunction } from "express";
 import ReactionComment from "../models/ReactionComment";
 import { Op } from "sequelize";
+import jwt from "jsonwebtoken";
 
 class ReactionCommentController {
 
   async create(req: Request, res: Response, next: NextFunction) {
     try {
-      const {userId, commentId, reactionId} = req.body;
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) {
+        return next(ApiError.unauthorized("You need to signin to do that"));
+      }
+      const user: any = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
+      const userId = user.id;
+      const {commentId, reactionId} = req.body;
       if (!userId || !commentId || !reactionId) {
         return next(ApiError.notFound("Required values were not provided"))
       }
