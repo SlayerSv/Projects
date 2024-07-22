@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
 	_ "github.com/lib/pq"
 )
@@ -31,6 +32,29 @@ func getAll(w http.ResponseWriter, r *http.Request) {
 	encoder := json.NewEncoder(w)
 	encoder.SetIndent("", "  ")
 	encoder.Encode(smartphones)
+}
+
+func getOne(w http.ResponseWriter, r *http.Request) {
+	stringId := r.PathValue("id")
+	if stringId == "" {
+		log.Println("getOne func did not receive id param from path")
+		return
+	}
+	id, err := strconv.Atoi(stringId)
+	if err != nil {
+		log.Println("Failed to convert id param to int", err)
+		return
+	}
+	row := db.QueryRow("SELECT * FROM smartphones WHERE id = $1", id)
+	sm := Smartphone{}
+	err = row.Scan(&sm.ID, &sm.Model, &sm.Producer, &sm.Color, &sm.ScreenSize, &sm.Price)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	encoder := json.NewEncoder(w)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(sm)
 }
 
 func init() {
