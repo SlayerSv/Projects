@@ -21,6 +21,10 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  height: 100dvh;
+}
+
 a {
   text-decoration: none;
 }
