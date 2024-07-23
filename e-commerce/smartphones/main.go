@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/smartphones", getAll)
-	http.HandleFunc("/smartphones/{id}", getOne)
+	http.HandleFunc("GET /smartphones", getAll)
+	http.HandleFunc("GET /smartphones/{id}", ExtractID(getOne))
 	log.Print("starting server...\n")
 	http.ListenAndServe("localhost:8080", nil)
 }
