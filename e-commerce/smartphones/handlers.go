@@ -15,10 +15,10 @@ var db *sql.DB
 
 const PAGE_LIMIT int = 20
 
-func getAll(w http.ResponseWriter, r *http.Request) {
+func (app *Application) getAll(w http.ResponseWriter, r *http.Request) {
 	rows, err := db.Query("SELECT * FROM smartphones ORDER BY price LIMIT $1", PAGE_LIMIT)
 	if err != nil {
-		log.Println(err)
+		app.ErrorLogger.Println(err)
 		return
 	}
 	defer rows.Close()
@@ -28,12 +28,14 @@ func getAll(w http.ResponseWriter, r *http.Request) {
 		rows.Scan(&sm.ID, &sm.Model, &sm.Producer, &sm.Color, &sm.ScreenSize, &sm.Price)
 		smartphones = append(smartphones, sm)
 	}
+	w.Header().Set("Content-Type", "application/json")
 	encoder := json.NewEncoder(w)
 	encoder.SetIndent("", "  ")
 	encoder.Encode(smartphones)
 }
 
-func getOne(w http.ResponseWriter, r *http.Request, id int) {
+func (app *Application) getOne(w http.ResponseWriter, r *http.Request, id int) {
+	w.Header().Set("Content-Type", "application/json")
 	row := db.QueryRow("SELECT * FROM smartphones WHERE id = $1", id)
 	sm := Smartphone{}
 	err := row.Scan(&sm.ID, &sm.Model, &sm.Producer, &sm.Color, &sm.ScreenSize, &sm.Price)
@@ -42,7 +44,7 @@ func getOne(w http.ResponseWriter, r *http.Request, id int) {
 			http.NotFound(w, r)
 			return
 		}
-		log.Println(err)
+		app.ErrorLogger.Println(err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
