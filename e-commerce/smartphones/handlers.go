@@ -3,20 +3,16 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
-	"log"
+	"errors"
 	"net/http"
-	"os"
 
 	_ "github.com/lib/pq"
 )
 
-var DBConnString string
-var db *sql.DB
-
 const PAGE_LIMIT int = 20
 
 func (app *Application) getAll(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.Query("SELECT * FROM smartphones ORDER BY price LIMIT $1", PAGE_LIMIT)
+	rows, err := app.DB.Query("SELECT * FROM smartphones ORDER BY price LIMIT $1", PAGE_LIMIT)
 	if err != nil {
 		app.ErrorLogger.Println(err)
 		return
@@ -36,16 +32,16 @@ func (app *Application) getAll(w http.ResponseWriter, r *http.Request) {
 
 func (app *Application) getOne(w http.ResponseWriter, r *http.Request, id int) {
 	w.Header().Set("Content-Type", "application/json")
-	row := db.QueryRow("SELECT * FROM smartphones WHERE id = $1", id)
+	row := app.DB.QueryRow("SELECT * FROM smartphones WHERE id = $1", id)
 	sm := Smartphone{}
 	err := row.Scan(&sm.ID, &sm.Model, &sm.Producer, &sm.Color, &sm.ScreenSize, &sm.Price)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			http.NotFound(w, r)
+			ErrorJSON(w, errors.New("id does not exist"), http.StatusNotFound)
 			return
 		}
 		app.ErrorLogger.Println(err)
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		ErrorJSON(w, errors.New("internal server error"), http.StatusInternalServerError)
 		return
 	}
 	encoder := json.NewEncoder(w)
@@ -57,14 +53,13 @@ func delete(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func ErrorJSON(w http.ResponseWriter, err error, code int) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
+	w.WriteHeader(code)
+	json.NewEncoder(w).Encode(err)
+}
+
 func init() {
-	conn, err := os.ReadFile("DBConnectionString")
-	if err != nil {
-		log.Fatal(err)
-	}
-	DBConnString = string(conn)
-	db, err = sql.Open("postgres", DBConnString)
-	if err != nil {
-		log.Fatal(err)
-	}
+
 }
