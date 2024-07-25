@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"net/http"
 	"strconv"
 )
@@ -10,7 +11,7 @@ func ExtractID(fn func(w http.ResponseWriter, r *http.Request, id int)) http.Han
 		stringId := r.PathValue("id")
 		id, err := strconv.Atoi(stringId)
 		if stringId == "" || err != nil {
-			http.NotFound(w, r)
+			ErrorJSON(w, errors.New("incorrect id value"), http.StatusBadRequest)
 			return
 		}
 		fn(w, r, id)
