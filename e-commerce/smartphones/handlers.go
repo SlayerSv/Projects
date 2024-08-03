@@ -5,115 +5,109 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
-
-	_ "github.com/lib/pq"
+	"strconv"
 )
 
-const PAGE_LIMIT int = 20
+var errNotfound = errors.New("not found")
+var errInternal = errors.New("internal server error")
+var errIncorrectID = errors.New("incorrect id")
 
 func (app *Application) GetAll(w http.ResponseWriter, r *http.Request) {
-	rows, err := app.DB.Query("SELECT * FROM smartphones ORDER BY price LIMIT $1", PAGE_LIMIT)
+	smartphones, err := app.DB.GetAll()
 	if err != nil {
-		app.ErrorLogger.Println(err)
+		app.ErrorJSON(w, err)
 		return
 	}
-	defer rows.Close()
-	smartphones := []Smartphone{}
-	for rows.Next() {
-		sm := Smartphone{}
-		rows.Scan(&sm.ID, &sm.Model, &sm.Producer, &sm.Color, &sm.ScreenSize, &sm.Price)
-		smartphones = append(smartphones, sm)
-	}
-	w.Header().Set("Content-Type", "application/json")
-	encoder := json.NewEncoder(w)
-	encoder.SetIndent("", "  ")
-	encoder.Encode(smartphones)
+	app.Encode(w, smartphones)
 }
 
-func (app *Application) GetOne(w http.ResponseWriter, r *http.Request, id int) {
-	w.Header().Set("Content-Type", "application/json")
-	row := app.DB.QueryRow("SELECT * FROM smartphones WHERE id = $1", id)
-	sm := Smartphone{}
-	err := app.ExtractRow(w, row, sm)
+func (app *Application) GetOne(w http.ResponseWriter, r *http.Request) {
+	id, err := app.ExtractID(r)
 	if err != nil {
+		app.ErrorJSON(w, err)
 		return
 	}
-	encoder := json.NewEncoder(w)
-	encoder.SetIndent("", "  ")
-	encoder.Encode(sm)
+	smartphone, err := app.DB.GetOne(id)
+	if err != nil {
+		app.ErrorJSON(w, err)
+		return
+	}
+	app.Encode(w, smartphone)
 }
 
-func (app *Application) Delete(w http.ResponseWriter, r *http.Request, id int) {
-	w.Header().Set("Content-Type", "application/json")
-	row := app.DB.QueryRow("DELETE FROM smartphones where id = $1 returning *", id)
-	sm := Smartphone{}
-	err := app.ExtractRow(w, row, sm)
+func (app *Application) Delete(w http.ResponseWriter, r *http.Request) {
+	id, err := app.ExtractID(r)
 	if err != nil {
+		app.ErrorJSON(w, err)
 		return
 	}
-	encoder := json.NewEncoder(w)
-	encoder.SetIndent("", "  ")
-	encoder.Encode(sm)
+	smartphone, err := app.DB.Delete(id)
+	if err != nil {
+		app.ErrorJSON(w, err)
+		return
+	}
+	app.Encode(w, smartphone)
 }
 
 func (app *Application) Update(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	decoder := json.NewDecoder(r.Body)
 	sm := Smartphone{}
 	decoder.Decode(&sm)
-	query := `
-	UPDATE smartphones
-	SET model = $1, producer = $2, color = $3, screenSize = $4, price = $5
-	WHERE id = $6
-	RETURNING *
-	`
-	row := app.DB.QueryRow(query, sm.Model, sm.Producer, sm.Color, sm.ScreenSize, sm.Price, sm.ID)
-	err := app.ExtractRow(w, row, sm)
+	sm, err := app.DB.Update(sm)
 	if err != nil {
+		app.ErrorJSON(w, err)
 		return
 	}
-	encoder := json.NewEncoder(w)
-	encoder.SetIndent("", "  ")
-	encoder.Encode(sm)
+	app.Encode(w, sm)
 }
 
 func (app *Application) Create(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	decoder := json.NewDecoder(r.Body)
 	sm := Smartphone{}
 	decoder.Decode(&sm)
-	query := `
-	INSERT INTO smartphones (model, producer, color, screenSize, price)
-	VALUES ($1, $2, $3, $4, $5)
-	RETURNING *
-	`
-	row := app.DB.QueryRow(query, sm.Model, sm.Producer, sm.Color, sm.ScreenSize, sm.Price)
-	err := app.ExtractRow(w, row, sm)
+	sm, err := app.DB.Create(sm)
 	if err != nil {
+		app.ErrorJSON(w, err)
 		return
 	}
-	encoder := json.NewEncoder(w)
-	encoder.SetIndent("", "  ")
-	encoder.Encode(sm)
+	app.Encode(w, sm)
 }
 
-func ErrorJSON(w http.ResponseWriter, err error, code int) {
+func (app *Application) ErrorJSON(w http.ResponseWriter, err error) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-Content-Type-Options", "nosniff")
+	app.ErrorLogger.Println(err)
+	var code int
+	switch err {
+	case sql.ErrNoRows:
+		err = errNotfound
+		code = http.StatusNotFound
+	case errIncorrectID:
+		code = http.StatusBadRequest
+	default:
+		err = errInternal
+		code = http.StatusInternalServerError
+	}
 	w.WriteHeader(code)
 	json.NewEncoder(w).Encode(err)
 }
 
-func (app *Application) ExtractRow(w http.ResponseWriter, row *sql.Row, sm Smartphone) error {
-	err := row.Scan(&sm.ID, &sm.Model, &sm.Producer, &sm.Color, &sm.ScreenSize, &sm.Price)
+func (app *Application) Encode(w http.ResponseWriter, obj interface{}) {
+	w.Header().Set("Content-Type", "application/json")
+	encoder := json.NewEncoder(w)
+	encoder.SetIndent("", "  ")
+	err := encoder.Encode(obj)
 	if err != nil {
-		if err == sql.ErrNoRows {
-			ErrorJSON(w, errors.New("id does not exist"), http.StatusNotFound)
-			return err
-		}
-		app.ErrorLogger.Println(err)
-		ErrorJSON(w, errors.New("internal server error"), http.StatusInternalServerError)
-		return err
+		app.ErrorJSON(w, err)
+		return
 	}
-	return nil
+}
+
+func (app *Application) ExtractID(r *http.Request) (int, error) {
+	stringId := r.PathValue("id")
+	id, err := strconv.Atoi(stringId)
+	if stringId == "" || err != nil {
+		return 0, errIncorrectID
+	}
+	return id, nil
 }

@@ -11,7 +11,7 @@ type Application struct {
 	ErrorLogger *log.Logger
 	Infologger  *log.Logger
 	Server      *http.Server
-	DB          *sql.DB
+	DB          PostgresDB
 }
 
 func NewApplication() *Application {
@@ -24,10 +24,10 @@ func NewApplication() *Application {
 	}
 	DBConnString := string(conn)
 	db, err := sql.Open("postgres", DBConnString)
+	postgres := PostgresDB{db}
 	if err != nil {
 		errorLogger.Fatal(err)
 	}
-
 	server := &http.Server{
 		Addr:     "localhost:8080",
 		ErrorLog: errorLogger,
@@ -37,7 +37,7 @@ func NewApplication() *Application {
 		ErrorLogger: errorLogger,
 		Infologger:  infoLogger,
 		Server:      server,
-		DB:          db,
+		DB:          postgres,
 	}
 
 	app.Server.Handler = app.NewRouter()
