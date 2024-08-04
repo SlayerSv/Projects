@@ -8,5 +8,5 @@ type Smartphone struct {
 	ScreenSize  float64 `json:"screenSize"`
 	Description string  `json:"description"`
 	Image       string  `json:"image"`
-	Price       float64 `json:"price"`
+	Price       int     `json:"price"`
 }
