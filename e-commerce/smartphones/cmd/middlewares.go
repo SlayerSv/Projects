@@ -7,7 +7,7 @@ import (
 
 func (app *Application) LogRequests(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		app.Infologger.Println(r.URL, r.Method, r.Body)
+		app.Infologger.Println(r.URL, r.Method, r.RemoteAddr, r.Body)
 		next.ServeHTTP(w, r)
 	})
 }
