@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-option go_package = "./";
+package smartphone;
+
+option go_package = "github.com/SlayerSv/Projects/e-commerce/proto";
 
 service SmartphoneService {
   rpc GetOne (OneRequest) returns (OneResponse);

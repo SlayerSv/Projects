@@ -4,7 +4,7 @@
 // - protoc             v5.27.3
 // source: proto/smartphone.proto
 
-package __
+package proto
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SmartphoneService_GetOne_FullMethodName  = "/SmartphoneService/GetOne"
-	SmartphoneService_GetMany_FullMethodName = "/SmartphoneService/GetMany"
+	SmartphoneService_GetOne_FullMethodName  = "/smartphone.SmartphoneService/GetOne"
+	SmartphoneService_GetMany_FullMethodName = "/smartphone.SmartphoneService/GetMany"
 )
 
 // SmartphoneServiceClient is the client API for SmartphoneService service.
@@ -142,7 +142,7 @@ func _SmartphoneService_GetMany_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SmartphoneService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "SmartphoneService",
+	ServiceName: "smartphone.SmartphoneService",
 	HandlerType: (*SmartphoneServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
